@@ -1,0 +1,66 @@
+---
+title: "Ninasoma"
+date: "2026-06-23"
+categories: ['data-engineering', 'edtech', 'product']
+---
+
+<!-- TODO: Confirm real launch date for the portfolio record. -->
+
+## Overview
+
+**Status:** Production / live
+**Impact:** Validated on real student users, with a first-party behavioral dataset designed for scale
+**Technologies:** Elixir, Phoenix, LiveView, PostgreSQL, Supabase, Tailwind CSS, Cloudflare R2, Fly.io
+**Live app:** [ninasoma.com](https://ninasoma.com)
+
+A USMLE Step 1 study platform I built for medical students. The product combines spaced-repetition flashcards, question-bank workflows, narrated audio tied to individual cards, and per-student dashboards.
+
+Behind the product I built the analytics from scratch. The core question was not only whether students opened the app, but whether the data model could explain what they were learning, how often they returned, and where a review habit was strengthening or breaking.
+
+
+## Product
+
+Built a study workflow around the daily repetition loop:
+
+- Spaced-repetition flashcards
+- Question-bank review
+- Time-coded narrated audio mapped to individual cards
+- Per-student progress dashboard
+
+The billing layer is stubbed. The platform is live with real student users, but the portfolio case study is about the learning system and the analytics layer behind it.
+
+
+## Data Model
+
+The analytics layer uses append-only event tables, mainly `review_events` and `listen_events`. Events are immutable, timestamped, and queryable, which makes it possible to reconstruct behavior instead of overwriting it with latest-state summaries.
+
+### Scheduler
+
+A custom spaced-repetition scheduler runs as a per-user state machine. Each review updates card state, schedules the next interval, and preserves enough history to audit why a card is due now rather than only storing a new due date.
+
+### Aggregation Layer
+
+The aggregation layer turns raw activity into:
+
+- Accuracy
+- Mastery, using a **21-day** interval threshold
+- Due and new counts
+- Current and longest streaks
+- A **14-week** engagement heatmap classifying review, listen, or both
+
+
+## Stack
+
+Built the app in Elixir and Phoenix LiveView so the product surface and the analytics-backed dashboard could live in one coherent application. PostgreSQL on Supabase stores product state and event history. Media files live in Cloudflare R2. The production app is deployed on Fly.io.
+
+
+## Results & Lessons Learned
+
+Ninasoma is live with real student users. It is validated on actual study behavior, but I am deliberately not framing it through user-count or revenue metrics because the interesting part here is the data foundation.
+
+Built this way, the platform produces a first-party behavioral dataset that can support cohort analysis later without re-architecting the product. The lesson was straightforward: if learning behavior matters, the event model has to be designed before the reporting layer, not after it.
+
+
+## Documentation & Resources
+
+- [Live App](https://ninasoma.com)

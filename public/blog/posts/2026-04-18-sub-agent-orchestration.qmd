@@ -1,0 +1,15 @@
+---
+title: "Sub-Agent Orchestration: Cost-Aware Delegation With Work Attribution"
+author: "Thandolwethu Dlamini"
+date: "2026-04-18"
+categories: [building-in-public, ai-tooling, architecture]
+description: "Not every task needs Opus. I built a 5-agent orchestration system that matches task complexity to model tier, tracks what each agent produces, and merges results with quality gates."
+---
+
+Claude Code's Agent Teams let agents talk to each other. That's useful for collaborative exploration. But when I need predictable, cost-controlled parallel execution, I need something different.
+
+wipnote's orchestration dispatches the right agent for each task at the right cost: Haiku for typo fixes, Sonnet for features, Opus for architecture decisions. Every sub-agent must register its work item before writing code. The execute skill reads dependency graphs from approved plans and dispatches all unblocked tasks simultaneously, each in its own git worktree.
+
+850+ features completed using this system, building wipnote with wipnote.
+
+[Read the full post →](https://shakestzd.github.io/wipnote/blog/sub-agent-orchestration/)

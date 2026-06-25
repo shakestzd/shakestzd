@@ -1,0 +1,69 @@
+---
+title: "Pitchcasts"
+date: "2026-06-23"
+categories: ['forecasting', 'sports-analytics', 'data-engineering']
+---
+
+## Overview
+
+**Status:** Production / live
+**Impact:** Live 2026 World Cup forecast with climate and travel adjustments, public scoring, and automated refresh
+**Technologies:** Python, FastAPI, NumPy, React, Vite, SQLite, dbt/DuckDB (offline analytics only), Fly.io, Cloudflare Pages
+**Live app:** [pitchcasts.com](https://pitchcasts.com)
+
+The 2026 World Cup is the first men's tournament spread across three countries, so a squad can play at altitude in Mexico City and in Gulf-Coast heat days later. Pitchcasts is a live model I built to put numbers on what that does to results.
+
+A live forecast only matters if the assumptions stay inspectable. Pitchcasts keeps the adjustment layer documented, scores forecasts only against pre-kickoff probabilities, and refreshes as tournament state changes.
+
+
+## Model
+
+Pitchcasts uses a Dixon-Coles bivariate Poisson goal model with a draw-inflation mixture. Team strength is estimated from FIFA ranking history and recent friendly form in a **180-day** exponentially decayed window, then docked for match conditions.
+
+### Environmental Layer
+
+- **Altitude:** venue elevation translated into a VO2-style performance drag
+- **Heat:** wet-bulb heat load, softened for roofed and air-conditioned stadiums
+- **Travel:** distance, time-zone change, and cross-border movement
+- **Recovery:** rest days and acclimatization window
+
+The covariates are documented and calibrated rather than hidden behind a single composite penalty.
+
+Match probabilities roll up into group-stage outlooks, Round-of-32 slots, bracket paths, and team-level advancement odds.
+
+
+## Evaluation
+
+Finished matches are scored with multiclass Brier score, using a leave-future-out setup so each evaluation only sees information available before kickoff. The model is refit at each kickoff cutoff rather than backfilled with later results.
+
+A separate walk-forward backtest covers **49,000+** historical international results. That gave me a way to test the travel and climate covariates before the World Cup started.
+
+
+## Operations
+
+The live system refreshes every **~2 minutes** during active match windows. `football-data.org` is the primary source, with cross-source verification when provider records disagree.
+
+### Governance
+
+- Model card with coefficients and sensitivity notes
+- Model registry that hashes each evaluation run
+- Config-change gates that require measured improvement before promotion
+- **50+** tests across ingestion, scoring, and forecast assembly
+
+The backend runs on Fly.io as a FastAPI service. The React/Vite frontend is deployed on Cloudflare Pages.
+
+
+## Results & Lessons Learned
+
+As of June 2026, the public scorecard showed:
+
+- **30 of 44** finished group-stage results matched by the top-probability call
+- **0.492** multiclass Brier score
+- **0.667** equal-probability uniform **1/3-1/3-1/3** baseline
+
+A live forecast changes the work. The model has to stay explainable under update pressure, not just score well in a notebook. The public scorecard is part of the product because calibration matters more than retrospective storytelling.
+
+## Documentation & Resources
+
+- [Live App](https://pitchcasts.com)
+- [football-data.org](https://www.football-data.org/)

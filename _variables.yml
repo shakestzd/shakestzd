@@ -1,0 +1,27 @@
+# Site-wide variables consumed by {{< var ... >}} shortcodes on the public site.
+# Minimal by design: only the keys rendered by public/about.qmd and
+# public/resume/resume.qmd are included. No phone number, home address,
+# employment dates, or internal figures are published here.
+
+contact:
+  email: "shakestzd@gmail.com"
+  linkedin: "linkedin.com/in/shakestzd"
+  github: "github.com/shakestzd"
+  location: "Durham, NC"
+
+personal:
+  nickname: "Shakes"
+  title: "Data & AI Engineer"
+
+urls:
+  email_link: "mailto:shakestzd@gmail.com"
+  linkedin_link: "https://linkedin.com/in/shakestzd"
+  github_link: "https://github.com/shakestzd"
+
+bio:
+  short: >-
+    Data & AI engineer. At SunStrong/Sunnova, built the geospatial compliance
+    system that unlocked $250M in Investment Tax Credits across a 500K+ solar asset
+    portfolio, automated $95M in revenue recovery, and delivered quarterly IRS filings
+    for partners managing $1B+ in renewable energy investments. Co-authored a multi-agent
+    clinical research pipeline with Johns Hopkins (in peer review at PRS).

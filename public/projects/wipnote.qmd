@@ -1,0 +1,60 @@
+---
+title: "wipnote"
+aliases:
+  - htmlgraph.html
+date: "2026-02-01"
+categories: ['ai-engineering', 'multi-agent', 'infrastructure', 'developer-tools']
+---
+
+## Overview
+
+**Status:** Active development (Go binary)
+**Impact:** Dogfoods its own development — all wipnote work items tracked in wipnote
+**Technologies:** Go, HTML, SQLite, Claude Code Hooks
+**Docs:** [shakestzd.github.io/wipnote](https://shakestzd.github.io/wipnote)
+
+Local-first observability and coordination platform for AI-assisted development. wipnote (originally launched as HtmlGraph) gives AI coding agents (Claude Code, Gemini CLI, Codex, GitHub Copilot) a shared coordination layer. Work items are canonical HTML files in `.wipnote/`, queryable via SQLite, managed by a single Go binary. No external infrastructure — just your repo.
+
+
+## Architecture
+
+Three layers:
+
+1. **HTML file storage** — Work items stored as `.wipnote/*.html` files in your repository. HTML is the source of truth: human-readable, git-diffable, browser-renderable.
+2. **SQLite cache** — Enables efficient querying, dashboard functionality, and analytics without parsing HTML on every request.
+3. **Go binary** — Single CLI binary for work item management, hook execution, and local dashboard serving.
+
+
+## Key Features
+
+**Work item management** — Tracks features, bugs, spikes, and initiatives using prefixed identifiers (feat-, bug-, spk-, trk-). Items progress through defined lifecycle stages: creation, active work, and completion.
+
+**Session tracking** — Tool calls and prompts are logged and connected to specific work items, creating an audit trail viewable through the dashboard.
+
+**Agent customization** — Configure specialized agents with distinct models, tools, and instructions for different roles (research, coding, testing).
+
+**Automation hooks** — Event-driven triggers respond to session start, tool execution, and completion events to enforce safety rules or initiate workflows.
+
+**Reusable commands** — Slash command shortcuts encapsulate multi-step processes into single invocations.
+
+**Quality enforcement** — Built-in gates require successful builds, linting, and testing before commits.
+
+**Dashboard** — Locally-served web interface with real-time activity monitoring, kanban views, and work item details.
+
+**Multi-tool coordination** — Claude Code, Gemini CLI, and other AI coding tools can read and write the same work items.
+
+
+## Design Philosophy
+
+- HTML files as structured graph storage — browsers render them, git versions them, SQLite queries them
+- Zero external dependencies — no databases, no cloud services, no accounts
+- Single binary distribution — install and run
+- AI agents are first-class citizens, not afterthoughts
+- The filesystem is the database, the browser is the UI
+
+
+## Documentation & Resources
+
+- [Documentation Site](https://shakestzd.github.io/wipnote)
+- [Source Code](https://github.com/shakestzd/wipnote)
+- MIT Licensed

@@ -1,0 +1,7 @@
+/_site/
+/.quarto/
+/_freeze/
+*_files/
+__pycache__/
+.DS_Store
+/.luarc.json

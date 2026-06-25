@@ -1,0 +1,80 @@
+---
+title: "AI-Powered Systematic Review Pipeline"
+date: "2025-12-01"
+categories: ['ai-engineering', 'multi-agent', 'healthcare', 'langgraph']
+---
+
+## Overview
+
+**Status:** In Peer Review (Plastic and Reconstructive Surgery)
+**Impact:** 99.3% recall on 6,673 clinical papers — 99.7% time savings vs. manual review
+**Technologies:** Python, LangGraph, GPT-4.1, Mistral OCR, LiteLLM, FastAPI, Celery, PostgreSQL, Langfuse
+
+Built a configurable multi-agent framework for extracting structured data from academic research papers. The system handles the full systematic review pipeline: multi-database literature search, eligibility screening with domain-expert criteria, structured data extraction with confidence scoring, and cross-study validation. Co-authored with Johns Hopkins University School of Medicine.
+
+
+## Research Impact
+
+### Key Metrics
+
+- **Recall (Sensitivity):** 99.3% across 4 systematic reviews
+- **Negative Predictive Value:** 99.9%
+- **Cost per Review:** $1.16 (vs. $50-100 manual)
+- **Processing Time:** 8.2 minutes per review (vs. days)
+- **Scale:** 6,673 papers screened, 110 gold standard inclusions
+
+
+## Technical Implementation
+
+### Multi-Agent Architecture
+- LangGraph DAG-based workflow orchestration with stateful nodes for OCR, extraction, and validation
+- Hybrid model routing: Mistral OCR for PDF text extraction, GPT-4.1 for structured extraction with JSON schema enforcement
+- Conditional branching with retry logic and error recovery at each pipeline stage
+- Confidence scoring with source quotes on every extracted data point
+
+### Multi-Strategy Literature Search
+- Four parallel search strategies: PubMed with MeSH term expansion, forward citation chaining, backward citation chaining, and citation convergence analysis
+- Relative recall validation between strategies to verify completeness
+- Fuzzy deduplication engine reconciling records across databases with different identifiers
+
+### Domain-Intelligent Screening
+- Field Maturity Detector: adjusts sample-size thresholds based on research field maturity
+- Anatomical Boundary Classifier: enforces domain-specific inclusion/exclusion rules
+- Technical Variation Checker: accepts methodological variations appropriate to the review type
+- Two-stage screening: rapid reject of obvious non-matches, then per-criterion evaluation with explicit reasoning
+
+
+## Key Features
+
+- Full observability via OpenTelemetry (logfire) and Langfuse for prompt/completion tracking and cost monitoring
+- Parallel screening via Celery task queue with Redis coordination
+- Multi-database API clients: PubMed, OpenAlex, ClinicalTrials.gov, Cochrane
+- Three interfaces: Textual TUI, FastAPI web API, and Typer CLI
+- Pydantic v2 schema validation on all extracted data
+
+
+## Results & Lessons Learned
+
+- Validated against real systematic reviews produced by domain experts at Johns Hopkins
+- Domain-expert prompt engineering (not generic prompting) is what unlocks clinical-grade performance
+- The field maturity concept — adjusting thresholds based on how established a research area is — was key to reducing false negatives
+- Manuscript in revision at Plastic and Reconstructive Surgery (top-tier surgical journal)
+
+
+## Related: On-Device NLP for Qualitative Research
+
+A second study with the same collaborators, applying on-device language models to qualitative interview analysis.
+
+- **Pipeline**: Three local LLMs (Llama 3.2 3B, Phi-3 Mini, Mistral 7B) running via Ollama on a MacBook Pro
+- **Dataset**: 17 semi-structured clinical interviews (~65,000 words) from a breast reconstruction disparities study
+- **Result**: All 3 models recovered 13/13 codes from the researcher's qualitative framework without seeing it. Identified 8 additional themes the manual analysis missed.
+- **Mistrust detection**: Found in 17/17 transcripts (100%) vs. 4/11 (36%) in the published manual analysis
+- **Speed**: 14-25 minutes per model, zero cost, no data leaves the machine
+- **Status**: Manuscript in preparation
+
+This work shows the same AI-for-research approach applied to a different problem: instead of screening thousands of papers, it analyzes what patients actually said in interviews.
+
+
+## Documentation & Resources
+
+- [Systematic Review Submission Package](https://github.com/shakestzd/months-to-minutes-prs)

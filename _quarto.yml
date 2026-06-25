@@ -1,0 +1,71 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "public/**/*.qmd"
+    - "assets/"
+  resources:
+    - "CNAME"
+
+# Shared metadata (brand colors/typography + base navigation data)
+metadata-files:
+  - "config/_brand.yml"
+  - "config/_navigation.yml"
+
+website:
+  title: "Thandolwethu (Shakes) Dlamini"
+  description: "Data & AI Engineer | Building intelligent systems for research, finance, and developer tooling"
+  site-url: "https://shakestzd.com"
+
+  navbar:
+    title: false
+    pinned: true
+    collapse: true
+    left:
+      - href: public/index.qmd
+        text: Home
+      - href: public/projects/index.qmd
+        text: Projects
+      - href: public/blog/index.qmd
+        text: Writing
+      - href: public/resume/resume.qmd
+        text: Resume
+    tools:
+      - icon: linkedin
+        href: https://linkedin.com/in/shakestzd
+        aria-label: LinkedIn
+      - icon: github
+        href: https://github.com/shakestzd
+        aria-label: GitHub
+      - icon: envelope
+        href: mailto:shakestzd@gmail.com
+        aria-label: Email
+
+format:
+  html:
+    theme:
+      light:
+        - cosmo
+        - assets/css/custom.scss
+      dark:
+        - darkly
+        - assets/css/custom-dark.scss
+    css:
+      - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    smooth-scroll: true
+    anchor-sections: true
+    page-layout: full
+    mainfont: "'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Consolas, monospace"
+
+execute:
+  freeze: auto
+  daemon: false
+
+jupyter:
+  kernelspec:
+    name: "python3"
+    language: "python"
+    display_name: "Python 3"

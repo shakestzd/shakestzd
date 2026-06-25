@@ -1,0 +1,24 @@
+---
+title: "AI Valuations vs. Infrastructure Spending"
+author: "Thandolwethu Dlamini"
+date: "2026-02-15"
+categories: [systems-research, ai-infrastructure, data-journalism]
+description: "The seven largest US tech companies added trillions in market value since 2023. Against that, six of the biggest AI infrastructure builders are spending hundreds of billions on capex. Is the spending backed by real revenue?"
+---
+
+*This is the first deep dive in TZD Labs Systems Research, an ongoing investigation into how AI capital flows through the physical economy.*
+
+The seven largest US tech companies have added trillions in combined market value since January 2023. Against that, six of the biggest AI infrastructure builders spent over $300B on capital expenditure in 2025 alone. The question is whether the spending is backed by real revenue, or whether companies are building well ahead of what customers will actually pay for.
+
+The analysis covers:
+
+- **Market cap gains vs. infrastructure spending** for each of the Magnificent 7
+- **Capex acceleration** from the previous cloud buildout cycle to the current AI wave
+- **Off-balance-sheet commitments** (operating leases, SPVs) that never appear in reported capex
+- **Revenue-to-capex ratios** for AWS, Google Cloud, and Azure
+- **Six competing demand theses** being funded by the same capital wave
+- **2026 guidance volatility** and bull/base/bear scenario analysis
+
+The piece uses data from SEC 10-K/10-Q filings, Yahoo Finance, FRED, and company earnings calls. All charts are interactive D3.js visualizations with scroll-synced narrative.
+
+[Read the full article on TZD Labs Systems Research →](https://shakestzd.github.io/Systems/dd001){.external-link}

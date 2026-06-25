@@ -1,0 +1,93 @@
+# Job-Specific Configuration Template
+# Copy this file for each application and customize as needed
+
+# Job Information
+job:
+  company: "COMPANY_NAME"
+  position: "POSITION_TITLE"
+  location: "LOCATION"
+  salary_range: "SALARY_RANGE"
+  job_type: "renewable_energy"  # Options: renewable_energy, data_engineering, finance, asset_management, general
+  application_date: "YYYY-MM-DD"
+  
+# Source information
+source:
+  platform: "LinkedIn"  # LinkedIn, Indeed, Company Website, Referral, etc.
+  url: "JOB_POSTING_URL"
+  referral_contact: null
+
+# Position targeting and customization
+customization:
+  position_title: "renewable_energy"  # Maps to position_variants in base-profile.yml
+  summary_type: "renewable_energy"    # Maps to summaries in base-profile.yml
+  
+  # Skills to emphasize (will be moved to top of skills section)
+  emphasized_skills:
+    - "Python"
+    - "SQL" 
+    - "Power BI"
+    - "ETL Development"
+    - "Solar Asset Analysis"
+  
+  # Experience bullets to prioritize (by ID from base-profile.yml)
+  prioritized_experience:
+    - "tax-credits"
+    - "etl-pipelines"
+    - "automation-systems"
+  
+  # Additional experience bullets to include if space allows
+  secondary_experience:
+    - "cross-functional"
+    - "regulatory-compliance"
+  
+  # Keywords from job posting to incorporate
+  job_keywords:
+    - "renewable energy"
+    - "asset management" 
+    - "Power BI"
+    - "SQL"
+    - "data analytics"
+    - "financial modeling"
+    - "automation"
+
+# Cover letter customization
+cover_letter:
+  # Research about the company
+  company_research:
+    mission: "COMPANY_MISSION_STATEMENT"
+    recent_news: "RECENT_COMPANY_NEWS_OR_ACHIEVEMENTS"
+    why_interested: "WHY_YOU_WANT_TO_WORK_HERE"
+  
+  # Key points to emphasize
+  key_selling_points:
+    - "Renewable energy expertise with $350M+ in delivered value"
+    - "Direct experience with solar asset portfolio management (500K+ assets)"
+    - "Proven ability to automate complex financial processes"
+  
+  # Specific achievements to highlight
+  highlighted_achievements:
+    - id: "tax-credits"
+      customization: "Directly relevant to renewable energy financial optimization"
+    - id: "etl-pipelines" 
+      customization: "Demonstrates asset management data infrastructure experience"
+
+# Interview preparation notes
+interview_prep:
+  key_challenges: []  # Add anticipated challenges this role faces
+  questions_to_ask: []  # Questions to ask the interviewer
+  star_stories: []     # STAR format stories to prepare
+
+# Application tracking
+tracking:
+  status: "draft"  # draft, applied, acknowledged, interviewing, offer, rejected, withdrawn
+  next_action: "Complete application materials"
+  next_action_date: "YYYY-MM-DD"
+  excitement_level: null  # 1-5 scale
+  fit_score: null        # 1-10 scale
+  notes: ""
+
+# File generation settings
+output:
+  resume_filename: "{company}-{position}-resume.pdf"
+  cover_letter_filename: "{company}-{position}-cover-letter.pdf"
+  generate_portfolio: false  # Whether to include a portfolio/work samples

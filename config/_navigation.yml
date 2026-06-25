@@ -1,0 +1,25 @@
+# Navigation configuration - single source of truth for the public site.
+# (Private job-search navigation has been removed for the public repo.)
+
+# Base navigation items
+base_navigation:
+  left:
+    - href: public/index.qmd
+      text: Home
+    - href: public/projects/index.qmd
+      text: Projects
+    - href: public/blog/index.qmd
+      text: Writing
+    - href: public/resume/resume.qmd
+      text: Resume
+
+  right:
+    - icon: linkedin
+      href: https://linkedin.com/in/shakestzd
+      aria-label: LinkedIn
+    - icon: github
+      href: https://github.com/shakestzd
+      aria-label: GitHub
+    - icon: envelope
+      href: mailto:shakestzd@gmail.com
+      aria-label: Email

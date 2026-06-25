@@ -1,0 +1,95 @@
+---
+page-layout: full
+toc: false
+aliases:
+  - ../index.html
+---
+
+```{=html}
+<div class="portfolio-home">
+<div class="profile-header">
+  <img src="../assets/images/shakes_profile_nobg_102522.png"
+       alt="Thandolwethu (Shakes) Dlamini"
+       class="profile-photo" />
+  <div class="profile-meta">
+    <h1 class="profile-name">Thandolwethu (Shakes) Dlamini</h1>
+    <div class="profile-links">
+      <a href="https://github.com/shakestzd" aria-label="GitHub">
+        <i class="bi bi-github"></i> GitHub
+      </a>
+      <a href="https://linkedin.com/in/shakestzd" aria-label="LinkedIn">
+        <i class="bi bi-linkedin"></i> LinkedIn
+      </a>
+      <a href="mailto:shakestzd@gmail.com" aria-label="Email">
+        <i class="bi bi-envelope"></i> Email
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="home-intro">
+  <p>I build geospatial analytics and data infrastructure that powers clean energy capital allocation, and AI systems that accelerate research and developer productivity. At SunStrong/Sunnova, I built the analytics platform behind a 200K+ solar asset portfolio: 7 automated ETL pipelines integrating operational, financial, and geographic datasets with 99.9% reliability, a geospatial system that unlocked $250M in ITC credits, and quarterly reporting for institutional investors managing $1B+ in renewable energy investments. I also co-authored a multi-agent clinical research pipeline with Johns Hopkins (99.3% recall, 6,673 papers, in peer review at <em>PRS</em>) and built wipnote, a local-first coordination platform for AI coding agents. MIT Technology &amp; Policy (computational modeling), Duke Mechanical Engineering.</p>
+</div>
+
+<section class="home-section">
+  <h2>Projects</h2>
+  <div class="project-grid home-project-grid">
+    <article class="project-card home-project-card home-project-card-featured">
+      <h3 class="project-title"><a href="projects/pitchcasts.html">Pitchcasts</a></h3>
+      <p class="project-description">Live 2026 World Cup forecasting product. Dixon-Coles goal model with altitude, wet-bulb heat, travel fatigue, live data sync, model scoring, and public forecast UI.</p>
+    </article>
+    <article class="project-card home-project-card">
+      <h3 class="project-title"><a href="projects/ninasoma.html">Ninasoma</a></h3>
+      <p class="project-description">USMLE Step 1 study platform with spaced repetition, narrated audio, append-only behavioral events, and analytics-backed student dashboards.</p>
+    </article>
+    <article class="project-card home-project-card">
+      <h3 class="project-title"><a href="projects/jobsmith.html">jobsmith</a></h3>
+      <p class="project-description">Personal alpha job-search pipeline for sourcing roles, scoring them under cost caps, and rendering tailored one-page application materials.</p>
+    </article>
+    <article class="project-card home-project-card">
+      <h3 class="project-title"><a href="projects/ai-systematic-review.html">AI Systematic Review Pipeline</a></h3>
+      <p class="project-description">Multi-agent LangGraph pipeline for clinical literature screening. 99.3% recall across 6,673 papers at $1.16/review. Co-authored with Johns Hopkins. In peer review.</p>
+    </article>
+    <article class="project-card home-project-card">
+      <h3 class="project-title"><a href="projects/wipnote.html">wipnote</a></h3>
+      <p class="project-description">Local-first observability and coordination platform for AI coding agents. HTML files as structured graph storage, SQLite cache, single Go binary. Open source.</p>
+    </article>
+    <article class="project-card home-project-card">
+      <h3 class="project-title"><a href="https://github.com/shakestzd/tilthq">TiltHQ</a></h3>
+      <p class="project-description">Political media analytics in Elixir/Phoenix. Tracks how creators cover breaking news with bias scoring and cross-creator synthesis. LiveView dashboard, Oban background jobs.</p>
+    </article>
+    <article class="project-card home-project-card">
+      <h3 class="project-title"><a href="https://github.com/shakestzd/inkbrief">InkBrief</a></h3>
+      <p class="project-description">Executive-ready PDF briefing generator. React 19 visual editor with BlockNote, Typst WASM compiler for instant PDF preview, Python CLI, PocketBase persistence.</p>
+    </article>
+    <article class="project-card home-project-card">
+      <h3 class="project-title"><a href="projects/skhiya.html">Skhiya</a></h3>
+      <p class="project-description">Desktop app (Rust/Tauri + React) for managing .env files, SSH keys, and shell configs across projects. Atomic writes, conflict resolution, reusable templates.</p>
+    </article>
+  </div>
+  <p class="home-section-link"><a href="projects/index.html">All projects →</a></p>
+</section>
+
+<section class="home-section home-secondary-grid">
+  <div>
+    <h2>Writing</h2>
+    <article class="home-text-item">
+      <h3><a href="blog/posts/2026-02-15-ai-valuations-vs-infrastructure.html">AI Valuations vs. Infrastructure Reality</a></h3>
+      <p>The capital flowing into AI exceeds what physical infrastructure can absorb. Examining the gap between financial expectations and material constraints.</p>
+    </article>
+    <p class="home-section-link"><a href="blog/index.html">All writing →</a></p>
+  </div>
+  <div>
+    <h2>Publications</h2>
+    <article class="home-text-item">
+      <h3>From Months to Minutes: Evaluating an AI-Assisted Approach to Systematic Reviews in Plastic Surgery</h3>
+      <p>Co-authored with Johns Hopkins Department of Plastic and Reconstructive Surgery. <em>Plastic and Reconstructive Surgery</em> — in peer review.</p>
+    </article>
+    <article class="home-text-item">
+      <h3>Atmospheric Mercury Modeling</h3>
+      <p>Computational modeling of mercury transport and deposition for environmental policy analysis. MIT Technology &amp; Policy Program, 2021.</p>
+    </article>
+  </div>
+</section>
+</div>
+```

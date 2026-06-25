@@ -1,0 +1,40 @@
+- title: "Programming"
+  description: "Python, SQL, Elixir, JavaScript, HTML/CSS, HTMX"
+  details:
+    - "Python (Advanced)"
+    - "SQL (Advanced)"
+    - "JavaScript"
+    - "HTML/CSS"
+    - "HTMX"
+
+- title: "Data Tools"
+  description: "Excel (Advanced), Tableau, Power BI, PostgreSQL, Power Query, Pandas, GeoPandas"
+  details:
+    - "Excel (Advanced)"
+    - "Tableau"
+    - "Power BI"
+    - "PostgreSQL"
+    - "Power Query"
+    - "Pandas"
+    - "GeoPandas"
+
+- title: "Data Infrastructure"
+  description: "ETL Development, Dagster, DLT Hub, DuckDB, Snowflake, Phoenix/LiveView, Oban, Git/GitHub, API Development"
+  details:
+    - "ETL Development"
+    - "Dagster"
+    - "DLT Hub"
+    - "DuckDB"
+    - "Snowflake"
+    - "Git/GitHub"
+    - "API Development"
+
+- title: "Analytics & Cloud"
+  description: "Financial Modeling, Google Cloud, AWS, Docker, Salesforce, ArcGIS"
+  details:
+    - "Financial Modeling"
+    - "Google Cloud"
+    - "AWS"
+    - "Docker"
+    - "Salesforce"
+    - "ArcGIS"

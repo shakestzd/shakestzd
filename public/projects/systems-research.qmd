@@ -1,0 +1,66 @@
+---
+title: "Systems Research Platform"
+date: "2026-02-01"
+categories: ['data-journalism', 'system-dynamics', 'bayesian', 'visualization']
+---
+
+## Overview
+
+**Status:** Active — first deep dive published
+**Impact:** Live published analysis with interactive D3 visualizations and system dynamics models
+**Technologies:** Python, Marimo, PySD, PyMC, DuckDB, D3.js, Observable Framework, dlt
+
+A data journalism and systems analysis platform investigating the physical and economic consequences of AI capital flows. Combines system dynamics modeling, Bayesian inference, and multi-source data pipelines to produce publication-quality interactive analyses deployed as a static site.
+
+
+## Published Work
+
+### Deep Dive 001: AI Valuations vs. Infrastructure Spending
+- Analysis of $4T+ in market cap gains against $320B in 2025 capex across the Magnificent 7
+- 10 interactive D3 scrollytelling charts with scroll-synced narrative
+- Data sourced from SEC 10-K/10-Q filings, Yahoo Finance, FRED, company earnings calls
+- Tracks off-balance-sheet commitments (operating leases, SPVs) not visible in reported capex
+
+
+## Technical Implementation
+
+### Quantitative Modeling
+- PySD system dynamics models: grid capacity, interconnection queues, behind-the-meter bypass, renewable cost learning curves (Wright's Law), regulatory feedback loops
+- PyMC Bayesian inference for probabilistic modeling of uncertain parameters (AI growth rate scenarios, regulatory favorability)
+- hmmlearn Markov regime switching for energy market state transitions
+- statsmodels time series econometrics
+
+### Multi-Source Data Pipeline
+- dlt (data load tool) for reproducible ETL from FRED, Yahoo Finance, SEC EDGAR, BLS, Census Bureau, World Bank, COMTRADE
+- DuckDB as the analytical store with pyarrow for columnar data
+- Python data loaders that execute at build time and output JSON for client-side rendering
+
+### Interactive Visualization
+- 10 custom D3.js chart modules with scroll-triggered animation
+- Observable Framework for the public site with custom editorial design system
+- Marimo reactive notebooks for analysis (pure Python, importable, testable, versionable)
+- Custom flowmpl library (published on PyPI) for flow diagrams and publication figures
+
+
+## Key Features
+
+- Bespoke design system: Cormorant Garamond + DM Sans, warm paper aesthetic
+- Company-specific color palette coordinated across all charts
+- Automated build and deploy to GitHub Pages
+- Planned deep dives: Grid Modernization, Stranded Capex, Extraction & Opportunity Cost
+- GeoPandas spatial analysis for mapping where capital lands physically
+
+
+## Results & Lessons Learned
+
+- System dynamics correctly captures feedback loops that static analysis misses (interconnection queue growth → behind-the-meter bypass → cost allocation shifts)
+- Marimo over Jupyter: reactive, pure Python, exports to clean HTML, version-controllable
+- Multi-source data pipelines require careful provenance tracking — every number must trace to a filing or dataset
+- The gap between reported capex and actual infrastructure commitment (including operating leases) is significant and consistently underreported
+
+
+## Documentation & Resources
+
+- [Live Site](https://shakestzd.github.io/Systems/)
+- [Source Code](https://github.com/shakestzd/Systems)
+- [flowmpl — Custom Visualization Library](https://github.com/shakestzd/flowmpl)

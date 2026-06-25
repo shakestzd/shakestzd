@@ -1,0 +1,56 @@
+---
+title: "jobsmith"
+date: "2026-06-23"
+categories: ['ai-engineering', 'data-engineering', 'automation']
+---
+
+## Overview
+
+**Status:** Active / personal project (alpha)
+**Impact:** Processes my own job applications end to end, from sourcing through tailored materials
+**Technologies:** Python, Typer, FastAPI, React, TypeScript, SQLite, Pydantic, Quarto, Typst, Anthropic Claude API, Playwright
+**Resources:** [GitHub](https://github.com/shakestzd/jobsmith)
+
+A toolchain I built for my own job search. jobsmith combines role sourcing, prioritization, and application-material generation in one pipeline so I can spend more time sending applications and less time reconstructing the same workflow from scratch.
+
+The system is personal by design. It is not a shipped product, and it is not used by anyone else. The interesting part is how the pipeline keeps cost bounded, preserves factual anchors in the resume, and halts when the inputs are too weak to justify drafting.
+
+
+## Sourcing
+
+Built a sourcing layer that crawls ATS boards including Greenhouse, Lever, Ashby, and Climatebase, then merges those postings with job-alert emails. Deduplication happens before downstream scoring so the queue reflects real opportunities rather than repeated board copies.
+
+
+## Scoring
+
+A cheap keyword score runs first as a gate. Only postings above the threshold move to an LLM rescore, and the rescore runs under a hard budget cap so API spend stays bounded.
+
+
+## Materials Pipeline
+
+The tailoring workflow uses multiple agents with explicit guardrails:
+
+- Parse the job description into requirements and signals
+- Select resume bullets while preserving anchor metrics
+- Draft a cover letter
+- Scrub common AI tells
+- Render a one-page PDF through Quarto and Typst
+
+Guard scripts halt the pipeline rather than fabricate missing evidence.
+
+
+## Data and Feedback
+
+SQLite stores the working state with versioned migrations. The analytics layer tracks the funnel from sourced to queued to promoted to interview to offer, with conversion rates and per-source yield.
+
+A draft-feedback loop diffs each generated application against my final edits. That gives the system a way to learn where I consistently tighten language or replace weak framing.
+
+
+## Results
+
+Processed **25+** of my own applications end to end. jobsmith is still personal alpha infrastructure, but it already functions as a full operating pipeline rather than a loose folder of scripts.
+
+
+## Documentation & Resources
+
+- [GitHub](https://github.com/shakestzd/jobsmith)

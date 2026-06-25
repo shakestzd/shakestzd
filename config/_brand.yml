@@ -1,0 +1,52 @@
+# Personal Brand Configuration for Shakes
+# Reflects actual styling from assets/css/custom.scss (the real source of truth)
+
+meta:
+  name: "Shakes Professional Brand"
+  link: "https://github.com/shakestzd"
+
+# Warm paper color palette (matches custom.scss)
+color:
+  palette:
+    paper: "#f5f1eb"
+    ink: "#1a1917"
+    ink-light: "#6b6560"
+    ink-muted: "#8a847e"
+    terracotta: "#b84c2a"
+    terracotta-light: "#d4704f"
+    border: "#c8c2b8"
+    border-muted: "#ddd8d0"
+    surface: "#ece8e1"
+
+  foreground: ink
+  background: paper
+  primary: terracotta
+  secondary: ink-light
+  success: "#4a8c55"
+  warning: "#8c7a40"
+  danger: "#c44040"
+
+# Typography (matches custom.scss)
+typography:
+  fonts:
+    - family: "Cormorant Garamond"
+      source: google
+
+    - family: "DM Sans"
+      source: google
+
+  base:
+    family: "Cormorant Garamond"
+    size: 1.1rem
+    weight: 400
+    line-height: 1.7
+
+  headings:
+    family: "Cormorant Garamond"
+    weight: 600
+    line-height: 1.25
+
+  monospace:
+    family: "ui-monospace, SFMono-Regular, SF Mono, Consolas, Liberation Mono, Menlo, monospace"
+    size: 0.875em
+    weight: 400

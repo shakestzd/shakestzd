@@ -1,0 +1,110 @@
+---
+title-block-style: none
+page-layout: full
+toc: false
+resources:
+  - Thandolwethu_Shakes_Dlamini_Resume.pdf
+format:
+  html:
+    css: resume.css
+---
+
+```{=html}
+<div style="text-align: right; margin-bottom: 0.5rem;">
+<a href="Thandolwethu_Shakes_Dlamini_Resume.pdf" download style="font-size: 0.85rem; color: var(--accent, #b84c2a); text-decoration: none; border: 1px solid var(--accent, #b84c2a); padding: 0.25rem 0.6rem; border-radius: 4px;">
+<i class="fas fa-download" style="font-size: 0.75rem;"></i> PDF
+</a>
+</div>
+```
+
+```{python}
+#| echo: false
+#| output: asis
+import yaml
+from pathlib import Path
+
+# Load data from single source of truth
+data_dir = Path("../../assets/content")
+
+with open(data_dir / "work-public.yml") as f:
+    work = yaml.safe_load(f)
+
+with open(data_dir / "education.yml") as f:
+    education = yaml.safe_load(f)
+
+with open(data_dir / "skill-public.yml") as f:
+    skills = yaml.safe_load(f)
+```
+
+## {{< var personal.title >}}
+
+::: {.resume-contact}
+[{{< var contact.location >}}]{.contact-item}
+[[{{< var contact.email >}}](mailto:{{< var contact.email >}})]{.contact-item}
+[[LinkedIn]({{< var urls.linkedin_link >}})]{.contact-item}
+[[GitHub]({{< var urls.github_link >}})]{.contact-item}
+:::
+
+---
+
+{{< var bio.short >}}
+
+---
+
+## Experience
+
+```{python}
+#| echo: false
+#| output: asis
+for job in work:
+    print(f"### {job['title']}")
+    print(f"**{job['location']}** | {job['date']} | {job.get('description', '')}")
+    print()
+    for bullet in job.get('details', []):
+        print(f"- {bullet}")
+    print()
+```
+
+---
+
+## Selected Projects
+
+**AI Systematic Review Pipeline** (2024-Present) -- LangGraph multi-agent pipeline (GPT-4.1 + Claude), 99.3% recall across 6,673 papers at $1.16/review. Co-authored with Johns Hopkins Dept. of Plastic and Reconstructive Surgery, in peer review at *PRS*.
+
+**Qualitative NLP** (2025) -- Privacy-preserving pipeline for on-device open-source LLM qualitative analysis of patient transcripts.
+
+**wipnote** (2024-Present) -- Local-first observability and coordination platform for AI coding agents. HTML files as structured graph storage, SQLite cache, single Go binary. Open source.
+
+**Mercury Transport Modeling** (2020-2022) -- Computational simulation of atmospheric mercury variability and regional inversion modeling. Two papers: one resubmitted to JGR: Atmospheres, one in peer review. International collaboration (MIT, CSIRO, TU Munich).
+
+**TiltHQ** (2025-Present) -- Political media analytics platform in Elixir/Phoenix. OTP supervision tree, Oban background jobs, LiveView dashboard with real-time bias scoring.
+
+**Skhiya** (2025-Present) -- Desktop environment manager (Rust/Tauri + React). Manages .env files, SSH keys, and shell configs across projects.
+
+---
+
+## Technical Skills
+
+```{python}
+#| echo: false
+#| output: asis
+for category in skills:
+    print(f"**{category['title']}:** {category['description']}")
+    print()
+```
+
+---
+
+## Education
+
+```{python}
+#| echo: false
+#| output: asis
+for edu in education:
+    print(f"### {edu['description']}")
+    print(f"**{edu['title']}** | {edu['location']} | {edu['date']}")
+    print()
+    for detail in edu.get('details', []):
+        print(f"- {detail}")
+    print()
+```

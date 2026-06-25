@@ -1,0 +1,3 @@
+- **Email**: [{{< var contact.email >}}]({{< var urls.email_link >}})
+- **LinkedIn**: [{{< var contact.linkedin >}}]({{< var urls.linkedin_link >}})
+- **GitHub**: [{{< var contact.github >}}]({{< var urls.github_link >}})

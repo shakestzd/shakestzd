@@ -1,0 +1,46 @@
+---
+toc: false
+---
+
+## AI Engineering
+
+**[jobsmith](jobsmith.qmd)**
+Personal alpha pipeline for sourcing roles, scoring opportunities, and generating tailored application materials with guardrails against fabrication.
+
+**[AI-Powered Systematic Review Pipeline](ai-systematic-review.qmd)**
+Multi-agent LangGraph pipeline for clinical literature screening. 99.3% recall across 6,673 papers at $1.16/review. Co-authored with Johns Hopkins. In peer review at PRS.
+
+**[TiltHQ — Political Media Analytics](https://github.com/shakestzd/tilthq)**
+Elixir/Phoenix platform tracking how political media creators frame breaking news. Bias scoring, cross-creator synthesis, LiveView dashboard.
+
+**[InkBrief](https://github.com/shakestzd/inkbrief)**
+Executive-ready PDF briefing generator with visual block editor (React 19 + BlockNote), Typst WASM compiler for instant preview, Python CLI, and PocketBase persistence.
+
+**[Skhiya — Developer Environment Manager](skhiya.qmd)**
+Desktop app (Rust/Tauri + React) for managing .env files, SSH keys, and shell configs across projects. Fully local.
+
+## Data Engineering
+
+**[Pitchcasts](pitchcasts.qmd)**
+Live 2026 World Cup forecasting product with a Dixon-Coles goal model, climate and travel adjustments, automated data refresh, and public calibration scorecard.
+
+**[Ninasoma](ninasoma.qmd)**
+USMLE Step 1 study platform with a first-party behavioral analytics layer, append-only learning events, and per-student dashboards.
+
+**[Energy Communities Compliance System](energy-communities.qmd)**
+Geospatial system determining solar eligibility for IRA tax credit adders. $10M+ in ITC eligibility identified across SunStrong's portfolio.
+
+**[wipnote](wipnote.qmd)**
+Local-first coordination layer for AI coding agents using HTML as structured graph storage. Go, open source.
+
+**[Systems Research Platform](systems-research.qmd)**
+Interactive data journalism on AI capital flows. System dynamics modeling, Bayesian inference, Observable Framework.
+
+**[Treasury DataTape Infrastructure](treasury-datatapes.qmd)**
+Standardized financial dataset generation supporting $220M+ in tax equity operations. Production ETL for securitization and regulatory reporting.
+
+**[Database Credentials Management](database-tools.qmd)**
+Secure credentials management with OS-level encryption. 50ms import times, zero plain-text credential exposure.
+
+**[Treasury Analytics Core](treasury-analytics-core.qmd)**
+Shared framework eliminating code duplication across 15+ treasury analytics projects. Database operations, query optimization, performance tracking.

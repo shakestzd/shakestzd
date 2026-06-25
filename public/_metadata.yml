@@ -1,0 +1,17 @@
+# Public site metadata
+# This file provides shared metadata for all public-facing content
+
+# Default format settings for public content
+format:
+  html:
+    page-layout: full
+    toc: true
+    toc-depth: 3
+    smooth-scroll: true
+    anchor-sections: true
+    code-fold: true
+
+# Common navigation elements for public site
+website:
+  sidebar: false
+  

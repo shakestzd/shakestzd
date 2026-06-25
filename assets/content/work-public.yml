@@ -1,0 +1,26 @@
+- title: "Senior Data Analyst - Revenue Management"
+  location: "SunStrong Management LLC"
+  date: "Aug 2025 - Sep 2025"
+  description: "Remote"
+  details:
+    - "Ensured zero disruption to $250M+ in federal tax credit qualifications by leading data systems migration through corporate acquisition of Sunnova Energy's 200K+ solar asset portfolio"
+    - "Delivered quarterly ITC certifications and IRS compliance filings for institutional partners managing $1B+ in renewable energy investments"
+    - "Adapted proprietary Energy Community analysis system to evolving IRS Notice 2025-31 requirements, maintaining 97.3% accuracy rate across multi-state regulatory compliance"
+
+- title: "Senior Data Analyst - Finance"
+  location: "Sunnova Energy"
+  date: "Jun 2024 - Jul 2025"
+  description: "Remote"
+  details:
+    - "Architected Python-based geospatial analytics system that unlocked $250M in additional Investment Tax Credits by analyzing 200K+ solar assets across 29 states"
+    - "Built enterprise data infrastructure for 500K+ solar asset portfolio through 7 automated ETL pipelines (Python, DLT, DuckDB, Dagster) with 99.9% reliability"
+    - "Enabled $50M in incremental tax credits by collaborating with Legal, Tax, Pricing and Government Relations teams to translate IRS regulatory updates into automated business logic"
+
+- title: "Data Analyst - Financial Operations"
+  location: "Sunnova Energy"
+  date: "Nov 2022 - Jun 2024"
+  description: "Remote"
+  details:
+    - "Recovered $95M in dealer-related revenue through automated data pipelines using Python and Tableau: $91M in accounts receivables via integrated dashboards, $4M through credit note reconciliation"
+    - "Reduced accounts payable processing time by 75% by consolidating 4 separate reports into unified PostgreSQL database architecture with one-click automation"
+    - "Generated $1M in interest revenue over 9 months by implementing automated SQL/Tableau pipelines that identified 3,000 non-compliant systems ($51M value)"

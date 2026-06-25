@@ -1,0 +1,13 @@
+---
+title: "Why I Switched from Python to Go for AI Development Tooling"
+author: "Thandolwethu Dlamini"
+date: "2026-04-11"
+categories: [building-in-public, ai-tooling, engineering]
+description: "It wasn't just the cold start latency. The project outgrew Python, and the switch to Go was faster than I expected."
+---
+
+wipnote started in Python. It worked until the project outgrew it. Hook latency was the obvious pain (hundreds of milliseconds in cold starts, hundreds of times per session), but it wasn't the only friction. Testing was slow. Distribution meant explaining virtualenvs. The daily development experience was becoming a drag.
+
+I'd been watching developers like Wes McKinney build Go tools for similar problems, and AI agents write surprisingly solid Go. So I tried the switch, expecting it to take weeks. Months of Python work converted in days. Problems that had been technically painful in Python became straightforward.
+
+[Read the full post →](https://shakestzd.github.io/wipnote/blog/python-to-go/)

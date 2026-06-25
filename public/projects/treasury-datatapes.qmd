@@ -1,0 +1,59 @@
+---
+title: "Treasury DataTape Infrastructure"
+date: "2023-06-01"
+categories: ['financial-data', 'automation', 'tax-equity']
+---
+
+## Overview
+
+**Status:** Production  
+**Impact:** $220M+ in investment operations supported  
+**Technologies:** Python, Oracle SQL, Pandas, SQLAlchemy, Automated Testing
+
+Created a robust infrastructure for generating standardized financial datasets (DataTapes) that serve as the foundation for tax equity investments, securitization processes, and regulatory reporting. This system ensures data consistency and accuracy across multiple financial operations.
+
+
+## Business Impact
+
+### Key Metrics
+
+- **Efficiency Improvement:** 80%
+
+
+## Technical Implementation
+
+### System Design
+- Centralized data pipeline architecture
+- Oracle database integration with connection pooling
+- Automated data validation and profiling
+- Version control for financial dataset evolution
+
+### Data Processing
+- ETL pipelines for 7 distinct datatape formats
+- Business logic implementation for calculated fields
+- Data lineage tracking for audit requirements
+- Performance optimization for large datasets
+
+
+## Key Features
+
+- Automated generation of 7 production financial datasets
+- Built-in data validation and quality checks
+- Comprehensive documentation with data dictionaries
+- Version control and change tracking
+- Integration with downstream reporting systems
+
+
+## Results & Lessons Learned
+
+- Supported $220M+ in annual tax equity investments
+- Reduced datatape generation time by 80%
+- Eliminated manual data entry errors
+- Improved investor confidence through consistent reporting
+
+
+
+## Documentation & Resources
+
+- [Technical Documentation](https://sunnova.github.io/treasury-datatape-generator/)
+

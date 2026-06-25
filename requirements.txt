@@ -1,0 +1,4 @@
+# Minimal dependencies for rendering the public site.
+# public/resume/resume.qmd contains {python} cells that import yaml.
+jupyter
+pyyaml

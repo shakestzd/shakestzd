@@ -1,0 +1,15 @@
+---
+title: "YOLO Mode: Autonomous AI Development With Engineering Guardrails"
+author: "Thandolwethu Dlamini"
+date: "2026-04-16"
+categories: [building-in-public, ai-tooling, engineering]
+description: "Claude Code's auto mode guards against security threats. I built YOLO mode to guard against bad engineering: untested commits, unresearched changes, and oversized diffs."
+---
+
+"Can I just let the AI run?" Every developer using AI coding tools asks this eventually.
+
+Claude Code's auto mode answers the security question: it blocks exfiltration, production deploys, and force-pushes. But it's only available on Team/Enterprise plans and doesn't address development quality.
+
+YOLO mode runs on bypassPermissions (the most permissive mode) but layers 9 deterministic Go hook guardrails on top: work item attribution, branch protection, research-before-writing enforcement, test and diff review gates, commit budget limits, and UI validation. Every guardrail exists because of a real incident. The 47-file commit. The agent that pushed to main. The CSS change that broke the dashboard.
+
+[Read the full post →](https://shakestzd.github.io/wipnote/blog/yolo-mode-autonomous-guardrails/)

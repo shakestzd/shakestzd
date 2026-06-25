@@ -1,0 +1,369 @@
+# Project metadata for shakestzd portfolio
+# This file drives automated content generation across the site
+
+projects:
+  pitchcasts:
+    title: "Pitchcasts"
+    subtitle: "Live 2026 World Cup forecasting with climate and travel adjustments"
+    status: "production / live"
+    featured: true
+    date: "2026-06-23"
+    impact: "Live public forecast with climate and travel adjustments, public scoring, and automated refresh"
+    tech_stack:
+      - "Python"
+      - "FastAPI"
+      - "NumPy"
+      - "React"
+      - "Vite"
+      - "SQLite"
+      - "dbt/DuckDB (offline analytics only)"
+      - "Fly.io"
+      - "Cloudflare Pages"
+    categories:
+      - "forecasting"
+      - "sports-analytics"
+      - "data-engineering"
+    metrics:
+      finished_matches_scored: 44
+      top_probability_hits: 30
+      brier_score: 0.492
+    documentation_url: "https://pitchcasts.com"
+    summary: "Built a live 2026 World Cup forecasting model using a Dixon-Coles bivariate Poisson core, climate and travel covariates, and a public Brier-scored evaluation loop."
+    description: |
+      Built a public forecasting app for the 2026 FIFA World Cup. Pitchcasts combines a Dixon-Coles bivariate Poisson goal model, documented environmental adjustments, and a live data pipeline to publish match probabilities and tournament outlooks.
+    technical_details: |
+      ### Forecasting Layer
+      - Dixon-Coles bivariate Poisson goal model with draw-inflation mixture
+      - Team strength from FIFA ranking history and recent friendly form in a 180-day exponentially decayed window
+      - Documented covariates for altitude, wet-bulb heat, travel distance, time-zone change, and rest days
+      - Adjustments softened for roofed and air-conditioned stadiums
+
+      ### Evaluation and Operations
+      - Multiclass Brier score with leave-future-out evaluation and kickoff cutoff
+      - Walk-forward backtest over 49,000+ historical international results
+      - FastAPI backend on Fly.io with React/Vite frontend on Cloudflare Pages
+      - Live sync loop refreshing data roughly every 2 minutes during active match windows
+    features:
+      - "Live match probabilities and tournament outlooks"
+      - "Documented environmental adjustment layer"
+      - "Public model scorecard with Brier score and top-pick hit rate"
+      - "Model card, model registry, and config-change gates"
+      - "Cross-source verification around football-data.org ingest"
+    results: |
+      - Live throughout the 2026 World Cup group stage
+      - Top pick correct in 30 of 44 finished group matches as of June 2026
+      - 0.492 multiclass Brier score versus 0.667 equal-probability baseline as of June 2026
+
+  ninasoma:
+    title: "Ninasoma"
+    subtitle: "A USMLE Step 1 study platform with a first-party behavioral analytics layer"
+    status: "production / live"
+    featured: true
+    date: "2026-06-23"
+    impact: "Validated on real student users, with a first-party behavioral dataset designed for scale"
+    tech_stack:
+      - "Elixir"
+      - "Phoenix"
+      - "LiveView"
+      - "PostgreSQL"
+      - "Supabase"
+      - "Tailwind CSS"
+      - "Cloudflare R2"
+      - "Fly.io"
+    categories:
+      - "data-engineering"
+      - "edtech"
+      - "product"
+    documentation_url: "https://ninasoma.com"
+    summary: "Built a USMLE Step 1 study platform with spaced repetition, narrated audio, and an append-only behavioral analytics layer."
+    description: |
+      Built a study platform for medical students preparing for USMLE Step 1. The system combines spaced-repetition review workflows with a first-party event model designed to explain real learning behavior over time.
+    technical_details: |
+      ### Product Layer
+      - Spaced-repetition flashcards, question-bank workflows, narrated audio, and per-student dashboards
+      - Billing layer stubbed while the core learning loop is validated on real student users
+
+      ### Data and Scheduling Layer
+      - Append-only review_events and listen_events tables
+      - Custom per-user spaced-repetition state machine
+      - Aggregations for accuracy, mastery, due/new counts, streaks, and 14-week engagement heatmap
+    features:
+      - "Spaced-repetition review workflows"
+      - "Time-coded narrated audio tied to individual cards"
+      - "Append-only behavioral event model"
+      - "Per-student dashboard and engagement heatmap"
+    results: |
+      - Live with real student users
+      - First-party behavioral dataset designed for later cohort analysis without re-architecting
+
+  jobsmith:
+    title: "jobsmith"
+    subtitle: "A personal pipeline for sourcing roles and tailoring application materials"
+    status: "active / personal project (alpha)"
+    featured: true
+    date: "2026-06-23"
+    impact: "Personal alpha pipeline for role sourcing, scoring, and tailored application materials"
+    tech_stack:
+      - "Python"
+      - "Typer"
+      - "FastAPI"
+      - "React"
+      - "TypeScript"
+      - "SQLite"
+      - "Pydantic"
+      - "Quarto"
+      - "Typst"
+      - "Anthropic Claude API"
+      - "Playwright"
+    categories:
+      - "ai-engineering"
+      - "data-engineering"
+      - "automation"
+    documentation_url: "https://github.com/shakestzd/jobsmith"
+    github_url: "https://github.com/shakestzd/jobsmith"
+    summary: "Built a personal alpha toolchain that sources roles, scores them under cost caps, and generates tailored application materials with guardrails."
+    description: |
+      Built a personal pipeline for my own job search. jobsmith combines sourcing, prioritization, and application-material generation while keeping API cost bounded and halting when evidence is too weak.
+    technical_details: |
+      ### Sourcing and Scoring
+      - Crawls Greenhouse, Lever, Ashby, and Climatebase, then ingests job-alert emails
+      - Deduplicates postings before scoring
+      - Uses a cheap keyword gate before LLM rescore under a hard budget cap
+
+      ### Materials and Analytics
+      - Multi-agent pipeline for JD parsing, bullet selection, cover-letter drafting, AI-tell scrubbing, and Quarto plus Typst PDF rendering
+      - Guard scripts that halt instead of fabricating claims
+      - Funnel analytics from sourced to offer plus draft-to-final diff feedback loop
+    features:
+      - "ATS board crawling and email ingest"
+      - "Budget-capped scoring pipeline"
+      - "Tailored resume and cover-letter generation"
+      - "Funnel analytics and draft-feedback loop"
+    results: |
+      - Processed 25+ of my own applications end to end
+      - Personal alpha only, not shipped and not used by anyone else
+
+  energy_communities:
+    title: "Energy Communities Compliance System"
+    subtitle: "Automated Tax Credit Eligibility Analysis for Solar Installations"
+    status: "production"
+    featured: true
+    date: "2024-05-01"
+    impact: "$10M+ in additional tax credit value identified"
+    tech_stack: 
+      - "Python"
+      - "ArcGIS API"
+      - "Pandas"
+      - "Geospatial Analysis"
+      - "SQLAlchemy"
+    categories:
+      - "geospatial"
+      - "compliance"
+      - "tax-equity"
+    metrics:
+      financial_impact: 10000000
+      systems_processed: 50000
+      efficiency_gain: 0.9
+    documentation_url: "https://sunnova.github.io/Treasury_EC_Data/"
+    summary: "Built from ground up a Python package determining solar system eligibility for 10% ITC adders under the Inflation Reduction Act. Implemented complex geospatial analysis matching installations to IRS-designated energy communities."
+    description: |
+      Developed a comprehensive system to determine solar installation eligibility for additional Investment Tax Credits (ITC) under the Inflation Reduction Act's Energy Community provisions. This enterprise-scale solution processes tens of thousands of installations against complex regulatory requirements.
+    technical_details: |
+      ### Architecture
+      - Modular Python package (`nova_ec`) with clean API design
+      - Integration with ArcGIS REST APIs for geospatial data
+      - Automated data pipeline processing multiple source formats
+      - Comprehensive validation and error handling
+      
+      ### Key Challenges Solved
+      - Interpreting complex IRS Notice 2023-29 requirements
+      - Handling multiple data sources with varying formats
+      - Implementing efficient geospatial matching algorithms
+      - Managing 2023 vs 2024 regulatory differences
+    features:
+      - "Automated determination of three types of energy community eligibility"
+      - "Real-time integration with IRS and EPA data sources"
+      - "Comprehensive audit trail for compliance documentation"
+      - "Performance optimization for 50,000+ location processing"
+      - "Configurable rules engine for regulatory updates"
+    results: |
+      - Identified over $10M in additional tax credit eligibility
+      - Reduced manual compliance checking from days to minutes
+      - Achieved 99.9% accuracy in eligibility determinations
+      - Enabled proactive portfolio optimization for tax benefits
+
+  treasury_datatapes:
+    title: "Treasury DataTape Infrastructure"
+    subtitle: "Standardized Financial Dataset Generation for Tax Equity Operations"
+    status: "production"
+    featured: true
+    date: "2023-06-01"
+    impact: "$220M+ in investment operations supported"
+    tech_stack:
+      - "Python"
+      - "Oracle SQL"
+      - "Pandas"
+      - "SQLAlchemy"
+      - "Automated Testing"
+    categories:
+      - "financial-data"
+      - "automation"
+      - "tax-equity"
+    metrics:
+      financial_scope: 220000000
+      datatapes_managed: 7
+      efficiency_gain: 0.8
+    documentation_url: "https://sunnova.github.io/treasury-datatape-generator/"
+    summary: "Architected standardized financial dataset generation supporting tax equity, securitization, and regulatory reporting. Manages data integration from Oracle databases with automated validation and version control."
+    description: |
+      Created a robust infrastructure for generating standardized financial datasets (DataTapes) that serve as the foundation for tax equity investments, securitization processes, and regulatory reporting. This system ensures data consistency and accuracy across multiple financial operations.
+    technical_details: |
+      ### System Design
+      - Centralized data pipeline architecture
+      - Oracle database integration with connection pooling
+      - Automated data validation and profiling
+      - Version control for financial dataset evolution
+      
+      ### Data Processing
+      - ETL pipelines for 7 distinct datatape formats
+      - Business logic implementation for calculated fields
+      - Data lineage tracking for audit requirements
+      - Performance optimization for large datasets
+    features:
+      - "Automated generation of 7 production financial datasets"
+      - "Built-in data validation and quality checks"
+      - "Comprehensive documentation with data dictionaries"
+      - "Version control and change tracking"
+      - "Integration with downstream reporting systems"
+    results: |
+      - Supported $220M+ in annual tax equity investments
+      - Reduced datatape generation time by 80%
+      - Eliminated manual data entry errors
+      - Improved investor confidence through consistent reporting
+
+  database_tools:
+    title: "Database Credentials Management System"
+    subtitle: "Enterprise Database Security and Access Framework"
+    status: "production"
+    featured: true
+    date: "2024-01-01"
+    impact: "50ms import times, zero plain-text credential exposure"
+    tech_stack:
+      - "Python"
+      - "OS-level Encryption"
+      - "SQLAlchemy"
+      - "Environment Detection"
+    categories:
+      - "infrastructure"
+      - "security"
+      - "developer-tools"
+    metrics:
+      import_time_ms: 50
+      teams_using: 5
+      security_incidents: 0
+    documentation_url: "https://sunnova-shakesdlamini.github.io/dbcreds/"
+    github_url: "https://github.com/sunnova/dbcreds"
+    summary: "Created secure database credentials management system with OS-level encryption, automatic environment detection, and lightning-fast imports. Adopted across multiple teams for improved security."
+    description: |
+      Developed a professional-grade database credentials management system that eliminates plain-text password storage while maintaining developer productivity. The system provides secure, fast access to database connections across different environments.
+    technical_details: |
+      ### Security Architecture
+      - OS-level keychain integration (Windows, macOS, Linux)
+      - Zero plain-text credential storage
+      - Automatic environment detection and switching
+      - Secure credential rotation support
+      
+      ### Performance Optimization
+      - 50ms average import time
+      - Lazy loading of database connections
+      - Connection pooling integration
+      - Minimal memory footprint
+    features:
+      - "Cross-platform credential encryption"
+      - "Automatic environment detection (dev/staging/prod)"
+      - "Simple API requiring minimal code changes"
+      - "Built-in connection testing and validation"
+      - "Comprehensive security audit logging"
+    results: |
+      - Achieved 50ms import times for instant availability
+      - Zero security incidents since deployment
+      - Adopted by 5 teams across the organization
+      - Simplified onboarding for new developers
+
+  treasury_analytics_core:
+    title: "Treasury Analytics Core Framework"
+    subtitle: "Standardized Data Processing Infrastructure"
+    status: "production"
+    featured: true
+    date: "2023-09-01"
+    impact: "Eliminated code duplication across 15+ projects"
+    tech_stack:
+      - "Python"
+      - "SQLAlchemy"
+      - "Connection Pooling"
+      - "Query Caching"
+      - "Performance Monitoring"
+    categories:
+      - "infrastructure"
+      - "data-engineering"
+      - "framework"
+    metrics:
+      projects_using: 15
+      code_reduction: 0.7
+      query_performance_gain: 0.6
+    documentation_url: "https://sunnova.github.io/TreasuryAnalyticsCore/"
+    summary: "Designed standardized framework for database operations, query optimization, and performance tracking. Eliminated code duplication and established best practices across financial analysis projects."
+    description: |
+      Built a comprehensive framework that standardizes database operations across all Treasury analytics projects. This core library provides optimized data access patterns, performance monitoring, and reusable components that have become the foundation for financial analysis at scale.
+    technical_details: |
+      ### Framework Components
+      - Database connection management with pooling
+      - Query result caching with TTL support
+      - Automatic query performance tracking
+      - Standardized error handling and logging
+      
+      ### Design Patterns
+      - Repository pattern for data access
+      - Builder pattern for complex queries
+      - Observer pattern for performance monitoring
+      - Strategy pattern for database backends
+    features:
+      - "Connection pooling with automatic retry logic"
+      - "Intelligent query result caching"
+      - "Performance metrics collection and reporting"
+      - "Standardized data transformation utilities"
+      - "Comprehensive test coverage framework"
+    results: |
+      - 70% reduction in boilerplate code across projects
+      - 60% improvement in average query performance
+      - Standardized best practices across 15+ projects
+      - Accelerated development of new financial analyses
+
+# Additional project ideas to develop
+future_projects:
+  mit_mercury_research:
+    title: "Atmospheric Mercury Concentration Modeling"
+    subtitle: "Machine Learning for Environmental Treaty Effectiveness"
+    status: "completed"
+    featured: false
+    date: "2022-09-01"
+    impact: "30%+ reduction in estimate uncertainty"
+    tech_stack:
+      - "Python"
+      - "GEOS-Chem"
+      - "Machine Learning"
+      - "Scientific Computing"
+    summary: "Generated first-ever atmospheric mercury concentration estimates using machine learning, demonstrating significant uncertainty reduction for Minamata Convention effectiveness evaluation."
+
+  sasa_platform:
+    title: "SASA Education Platform"
+    subtitle: "Mobile-First Higher Education Access Portal"
+    status: "active"
+    featured: false
+    date: "2020-05-01"
+    impact: "$21,000 in funding raised, MIT IDEAS 1st place"
+    tech_stack:
+      - "Web Development"
+      - "Mobile-First Design"
+      - "Social Innovation"
+    summary: "Co-founded and developed platform improving higher education access in Eswatini. Won MIT IDEAS Social Innovation Challenge and additional funding."

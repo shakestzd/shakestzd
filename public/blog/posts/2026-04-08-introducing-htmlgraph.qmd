@@ -1,0 +1,15 @@
+---
+title: "Introducing wipnote: Local-First Observability for AI-Assisted Development"
+author: "Thandolwethu Dlamini"
+date: "2026-04-08"
+categories: [building-in-public, ai-tooling, open-source]
+description: "Every AI coordination tool I looked at stored state in SQLite. I wanted something I could diff in a PR, read in a browser, and traverse like a graph."
+---
+
+Every AI coordination tool I looked at stored state in SQLite or JSON. Queryable, but you can't diff them in a pull request. You can't open them in a browser and read them. And they don't express relationships between items.
+
+HTML gives you all three for free. Browsers render it, parsers query it, git tracks every change. And links between HTML files form a graph — traverse them to find related features, prior decisions, things that didn't work. The web is already a graph database; you just have to use it as one.
+
+wipnote (launched as wipnote) started from that idea. The architecture evolved from there: SQLite joined as a cache layer for fast reads, a Go binary replaced the original Python scripts, and the design settled through daily use rather than upfront planning.
+
+[Read the full post →](https://shakestzd.github.io/wipnote/blog/introducing-htmlgraph/)

@@ -1,0 +1,69 @@
+---
+title: "Contextune"
+date: "2026-01-01"
+categories: ['ai-engineering', 'embeddings', 'cost-optimization', 'developer-tools']
+---
+
+## Overview
+
+**Status:** Beta (v0.9.0)
+**Impact:** Sub-millisecond intent detection without API calls — 81% cost reduction via intelligent model routing
+**Technologies:** Python, Model2Vec, Semantic Router, rapidfuzz, DuckDB, Claude Code Hooks
+
+A Claude Code plugin that performs intent detection — translating natural language into slash commands through a three-tier detection cascade. When a user types "can you analyze my code for issues?", Contextune detects the intent and routes to the appropriate command. Also provides parallel development orchestration via git worktrees and cost optimization via Haiku agent delegation.
+
+
+## Design Philosophy
+
+### The Core Problem
+Most AI intent detection systems call an LLM for every query. This wastes tokens, adds latency, and costs money for something that can often be resolved locally.
+
+### The Solution
+A tiered architecture where each layer is faster and cheaper than the next, with fallthrough only when confidence is insufficient.
+
+
+## Technical Implementation
+
+### Three-Tier Detection Cascade
+
+**Tier 1 — Keyword Matching (0.02ms)**
+Exact and fuzzy string matching via rapidfuzz. Handles 60% of queries with zero API cost and zero dependencies beyond the string library.
+
+**Tier 2 — Model2Vec Embeddings (0.2ms)**
+Uses `minishlab/potion-base-2M`, an 8MB static embedding model. Pre-computes embeddings for all command patterns at startup, then performs cosine similarity at query time. No API key required, runs entirely offline. Handles 30% of queries.
+
+**Tier 3 — Semantic Router (50ms)**
+Aurelio Labs' semantic-router library with Cohere or OpenAI embeddings for the hardest 10% of queries. Only invoked when Tier 1 and 2 confidence is below threshold.
+
+### Cost-Aware Model Routing
+- Tracks weekly API usage and auto-switches to Haiku at 90% consumption
+- Three-tier agent architecture: Sonnet for planning, Haiku for 80% of execution tasks
+- Session duration tracking with context compaction detection
+- Smart delegation of expensive operations (reading >1000 lines) to cheaper models
+
+### Integration Architecture
+- Hooks into Claude Code's UserPromptSubmit event — intercepts before the LLM sees the prompt
+- Lazy loading with caching: each detection tier initialized on first use, embeddings pre-computed once
+- DuckDB for detection analytics, SQLite for observability
+
+
+## Key Features
+
+- Intent embeddings pre-computed at startup for sub-millisecond query-time matching
+- Detection analytics tracking which tier resolves each query
+- Parallel development orchestration via git worktrees
+- Cost monitoring with automatic model downgrade at budget thresholds
+- MkDocs documentation site
+
+
+## Results & Lessons Learned
+
+- 60% of intents resolve in 0.02ms via keyword matching — no model needed
+- Model2Vec (8MB static model) achieves semantic matching quality comparable to full BERT at 1000x the speed
+- The right architectural choice is intercepting at the hook level (before the LLM) rather than post-processing
+- Cost-aware routing is essential for sustainable AI agent usage — most tasks don't need the most capable model
+
+
+## Documentation & Resources
+
+- [Source Code](https://github.com/shakestzd/contextune)

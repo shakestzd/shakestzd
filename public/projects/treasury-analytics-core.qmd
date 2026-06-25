@@ -1,0 +1,58 @@
+---
+title: "Treasury Analytics Core Framework"
+date: "2023-09-01"
+categories: ['infrastructure', 'data-engineering', 'framework']
+---
+
+## Overview
+
+**Status:** Production  
+**Impact:** Eliminated code duplication across 15+ projects  
+**Technologies:** Python, SQLAlchemy, Connection Pooling, Query Caching, Performance Monitoring
+
+Built a comprehensive framework that standardizes database operations across all Treasury analytics projects. This core library provides optimized data access patterns, performance monitoring, and reusable components that have become the foundation for financial analysis at scale.
+
+
+## Business Impact
+
+### Key Metrics
+
+
+
+## Technical Implementation
+
+### Framework Components
+- Database connection management with pooling
+- Query result caching with TTL support
+- Automatic query performance tracking
+- Standardized error handling and logging
+
+### Design Patterns
+- Repository pattern for data access
+- Builder pattern for complex queries
+- Observer pattern for performance monitoring
+- Strategy pattern for database backends
+
+
+## Key Features
+
+- Connection pooling with automatic retry logic
+- Intelligent query result caching
+- Performance metrics collection and reporting
+- Standardized data transformation utilities
+- Comprehensive test coverage framework
+
+
+## Results & Lessons Learned
+
+- 70% reduction in boilerplate code across projects
+- 60% improvement in average query performance
+- Standardized best practices across 15+ projects
+- Accelerated development of new financial analyses
+
+
+
+## Documentation & Resources
+
+- [Technical Documentation](https://sunnova.github.io/TreasuryAnalyticsCore/)
+

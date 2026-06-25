@@ -1,0 +1,61 @@
+---
+title: "Energy Communities Compliance System"
+date: "2024-05-01"
+categories: ['geospatial', 'compliance', 'tax-equity']
+---
+
+## Overview
+
+**Status:** Production  
+**Impact:** $10M+ in additional tax credit value identified  
+**Technologies:** Python, ArcGIS API, Pandas, Geospatial Analysis, SQLAlchemy
+
+Developed a comprehensive system to determine solar installation eligibility for additional Investment Tax Credits (ITC) under the Inflation Reduction Act's Energy Community provisions. This enterprise-scale solution processes tens of thousands of installations against complex regulatory requirements.
+
+
+## Business Impact
+
+### Key Metrics
+
+- **Financial Impact:** $10.0M+
+- **Scale:** 50,000 systems processed
+- **Efficiency Improvement:** 90%
+
+
+## Technical Implementation
+
+### Architecture
+- Modular Python package (`nova_ec`) with clean API design
+- Integration with ArcGIS REST APIs for geospatial data
+- Automated data pipeline processing multiple source formats
+- Comprehensive validation and error handling
+
+### Key Challenges Solved
+- Interpreting complex IRS Notice 2023-29 requirements
+- Handling multiple data sources with varying formats
+- Implementing efficient geospatial matching algorithms
+- Managing 2023 vs 2024 regulatory differences
+
+
+## Key Features
+
+- Automated determination of three types of energy community eligibility
+- Real-time integration with IRS and EPA data sources
+- Comprehensive audit trail for compliance documentation
+- Performance optimization for 50,000+ location processing
+- Configurable rules engine for regulatory updates
+
+
+## Results & Lessons Learned
+
+- Identified over $10M in additional tax credit eligibility
+- Reduced manual compliance checking from days to minutes
+- Achieved 99.9% accuracy in eligibility determinations
+- Enabled proactive portfolio optimization for tax benefits
+
+
+
+## Documentation & Resources
+
+- [Technical Documentation](https://sunnova.github.io/Treasury_EC_Data/)
+

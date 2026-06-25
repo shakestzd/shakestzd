@@ -1,0 +1,456 @@
+/*-- scss:defaults --*/
+
+// TZD Portfolio — Dark Mode
+// Same design system, dark palette
+
+// ── Bootstrap overrides for dark theme ──
+$body-bg: #0d1117;
+$body-color: #f0f6fc;
+$link-color: #d4704f;
+$link-hover-color: #e8956e;
+$border-color: #30363d;
+$font-family-base: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Consolas, monospace;
+$headings-font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Consolas, monospace;
+$font-size-base: 0.95rem;
+$line-height-base: 1.75;
+$card-bg: #161b22;
+$card-border-color: #30363d;
+$input-bg: #161b22;
+$navbar-dark-color: #b1bac4;
+$navbar-dark-active-color: #f0f6fc;
+$navbar-dark-hover-color: #f0f6fc;
+
+// Brand colors (warmer accent for dark bg)
+$primary: #d4704f;
+
+// Spacing (same as light)
+$space-1: 0.25rem;
+$space-2: 0.5rem;
+$space-3: 0.75rem;
+$space-4: 1rem;
+$space-5: 1.25rem;
+$space-6: 1.5rem;
+$space-8: 2rem;
+$space-12: 3rem;
+
+$radius: 0.375rem;
+$radius-lg: 0.5rem;
+
+/*-- scss:rules --*/
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #0d1117;
+  --bg-secondary: #161b22;
+  --text: #f0f6fc;
+  --text-secondary: #b1bac4;
+  --text-muted: #848d97;
+  --border: #30363d;
+  --border-muted: #21262d;
+  --accent: #d4704f;
+  --accent-warm: #e8956e;
+  --rule: #30363d;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Consolas, monospace;
+}
+
+body {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--mono);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+h2 {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+}
+
+p {
+  font-family: var(--mono);
+  color: var(--text-secondary);
+  max-width: 65ch;
+}
+
+// Quarto listings — hide placeholder thumbnails, let body fill width
+.quarto-listing p,
+.listing-description,
+#listing-posts p {
+  max-width: none;
+}
+
+.quarto-post .thumbnail,
+.quarto-post .listing-item-img-placeholder {
+  display: none;
+}
+
+.quarto-post .body {
+  flex: 1 1 auto;
+}
+
+a {
+  color: var(--accent);
+  &:hover { color: var(--accent-warm); }
+}
+
+hr {
+  border-top-color: var(--rule);
+}
+
+// Hero
+.hero {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  p {
+    color: var(--text-secondary);
+    max-width: none;
+  }
+
+  .hero-image-side {
+    background: var(--bg);
+  }
+}
+
+// Content width
+.main-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.page-columns .column-body,
+.page-columns .column-page,
+#quarto-content > .page-columns > .content,
+#quarto-content > main.content {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#quarto-content > .page-columns > .content:has(.portfolio-home),
+#quarto-content > main.content:has(.portfolio-home) {
+  max-width: 1120px;
+  width: calc(100% - 3rem);
+}
+
+.portfolio-home {
+  width: min(100%, 1080px);
+  margin: 0 auto;
+  padding: 0 $space-6 $space-12;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: $space-6;
+  margin: $space-8 auto $space-6;
+  max-width: 760px;
+}
+
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: contain;
+  object-position: center;
+  flex-shrink: 0;
+  background: var(--bg);
+}
+
+.profile-meta {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.profile-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+.home-intro {
+  max-width: 760px;
+  margin: 0 auto $space-8;
+  overflow-wrap: break-word;
+
+  p {
+    max-width: none;
+    margin-bottom: 0;
+    color: var(--text-secondary);
+  }
+}
+
+.home-section {
+  margin-top: $space-12;
+
+  > h2 {
+    margin-bottom: $space-6;
+  }
+}
+
+.home-project-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.home-project-card {
+  min-height: 100%;
+  min-width: 0;
+  padding: 1.25rem;
+
+  .project-title {
+    font-size: 1rem;
+    line-height: 1.35;
+    margin-bottom: $space-2;
+
+    a {
+      color: var(--accent);
+    }
+  }
+
+  .project-description {
+    max-width: none;
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    line-height: 1.65;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-meta,
+  .profile-links,
+  .home-intro,
+  .home-project-grid,
+  .home-project-card,
+  .home-text-item {
+    max-width: calc(100vw - 3rem);
+    width: 100%;
+  }
+
+  .profile-meta {
+    align-items: center;
+  }
+
+  .profile-name,
+  .home-intro p,
+  .home-project-card .project-description,
+  .home-text-item p {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+}
+
+.home-project-card-featured {
+  border-color: color-mix(in srgb, var(--accent) 42%, var(--rule));
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--accent) 12%, transparent), transparent 34%),
+    var(--bg-secondary);
+}
+
+.home-secondary-grid {
+  display: grid;
+  gap: $space-8;
+}
+
+.home-text-item {
+  margin-bottom: 1.25rem;
+
+  h3 {
+    font-size: 1rem;
+    line-height: 1.35;
+    margin-bottom: $space-2;
+  }
+
+  p {
+    max-width: none;
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    line-height: 1.65;
+  }
+}
+
+.home-section-link {
+  max-width: none;
+  margin: 1.25rem 0 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .home-project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .home-secondary-grid {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  }
+}
+
+@media (max-width: 768px) {
+  #quarto-content > .page-columns > .content:has(.portfolio-home),
+  #quarto-content > main.content:has(.portfolio-home) {
+    max-width: calc(100vw - 1.5rem);
+    width: calc(100vw - 1.5rem);
+  }
+
+  .portfolio-home {
+    padding: 0 $space-4 $space-8;
+  }
+
+  .profile-header,
+  .home-intro {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+    gap: $space-4;
+  }
+
+  .profile-photo {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+// Section
+.section .section-title i {
+  color: var(--accent);
+}
+
+// Project cards
+.project-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--rule);
+
+  &:hover {
+    border-color: var(--accent);
+  }
+}
+
+// Navbar
+.navbar {
+  border-bottom: 1px solid var(--rule);
+  backdrop-filter: blur(10px);
+
+  .navbar-brand {
+    font-family: var(--mono);
+  }
+
+  .nav-link {
+    font-family: var(--mono);
+  }
+}
+
+// Profile
+.profile-links {
+  font-family: var(--mono);
+}
+
+// Contact pills
+.contact-pills .contact-pill {
+  background: var(--bg-secondary);
+  border: 1px solid var(--rule);
+  color: var(--text-secondary);
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+}
+
+// Buttons
+.btn.btn-primary {
+  background: var(--accent);
+  &:hover { background: var(--accent-warm); }
+}
+
+.btn.btn-outline {
+  border-color: var(--rule);
+  color: var(--text-secondary);
+  &:hover {
+    background: var(--bg-secondary);
+    color: var(--text);
+  }
+}
+
+// Blog
+.post-list .post-item {
+  border-bottom-color: var(--border-muted);
+  .post-title a { color: var(--text); &:hover { color: var(--accent); } }
+  .post-excerpt { color: var(--text-secondary); }
+}
+
+// Code
+pre {
+  background: var(--bg-secondary);
+  border: 1px solid var(--rule);
+}
+
+// Tables
+table th { background: var(--bg-secondary); }
+table td { color: var(--text-secondary); }
+
+// ── Dark mode mobile overrides ──────────────────────────
+@media (max-width: 991.98px) {
+  .navbar-toggler {
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23f0f6fc' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    &:focus {
+      outline-color: var(--accent);
+    }
+  }
+
+  .navbar-collapse {
+    background: var(--bg);
+    border-bottom-color: var(--rule);
+
+    .navbar-nav .nav-item {
+      border-bottom-color: var(--border-muted);
+    }
+
+    .navbar-nav .nav-link {
+      color: var(--text) !important;
+
+      &:hover {
+        color: var(--accent) !important;
+        background: color-mix(in srgb, var(--accent) 10%, transparent);
+      }
+
+      &.active::before,
+      &[aria-current="page"]::before {
+        background: var(--accent);
+      }
+    }
+
+    .quarto-navbar-tools {
+      border-top-color: var(--rule);
+
+      .bi {
+        color: var(--text) !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  p, li, td, th {
+    font-size: 0.875rem;
+  }
+}

@@ -1,0 +1,15 @@
+---
+title: "Plan Mode: From Freeform Text to Structured, Critiqued, Human-Reviewed Plans"
+author: "Thandolwethu Dlamini"
+date: "2026-04-14"
+categories: [building-in-public, ai-tooling, product-design]
+description: "Claude Code's plan mode produces text that vanishes after the session. I built a structured alternative with YAML schemas, dual-agent critique, and interactive human review."
+---
+
+Claude Code's built-in plan mode produces freeform text. You review it, approve it, and Claude executes. For simple tasks, it works.
+
+But for a multi-week initiative with 8 interdependent slices and architectural trade-offs that need human judgment, freeform text isn't enough. No schema, no persistence, no critique, no dispatch mechanism.
+
+I built CRISPI: structured YAML plans with dual-agent critique (one critic for design, one for feasibility), interactive human review via a local notebook, and a dispatch step that converts approved slices into tracked, dependency-ordered work items. The prototyping story is interesting too: I built it first in Marimo notebooks, then ported back to Go once I understood the workflow.
+
+[Read the full post →](https://shakestzd.github.io/wipnote/blog/plan-mode-structured-plans/)

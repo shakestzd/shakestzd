@@ -1,0 +1,80 @@
+---
+title: "Skhiya"
+date: "2025-11-01"
+categories: ['developer-tools', 'desktop-app', 'rust']
+---
+
+## Overview
+
+**Status:** Functional (Active Development)
+**Technologies:** Rust, Tauri, React 19, TypeScript, SQLite, Tailwind CSS, shadcn/ui
+
+Skhiya (siSwati: "the key") is a desktop application for managing environment variables, SSH keys, and shell configurations across development projects. Rust backend via Tauri, React frontend. Everything stays local.
+
+
+## Problem
+
+Developers working across many projects accumulate scattered `.env` files, SSH keys, and shell configurations. Managing these across 5-20+ projects is error-prone: secrets end up in plaintext, variables drift between environments, SSH keys go unrotated.
+
+
+## Architecture
+
+### Rust Backend
+
+- 9 Tauri command modules (IPC interface)
+- 11 service modules
+- SQLite with 7 tables, indexes, and migrations
+- Atomic file operations with `.bak` backups before every write
+
+### React Frontend
+
+- 7 pages: Dashboard, Projects, Project Detail, All Variables, Templates, SSH Keys, Shell Profiles, Settings
+- shadcn/ui components with Tailwind CSS
+
+
+## Features
+
+### Environment Variables
+- Automatic project discovery (Node, Python, Rust, Go, Elixir, Ruby, PHP)
+- Parse and edit `.env`, `.env.local`, `.env.development`, `.env.production`, `.env.example`, `.env.test`
+- Atomic saves with backup creation
+- Cross-project variable view with search and duplicate detection
+
+### Cross-Project Operations
+- Copy variables between projects with conflict resolution (Skip / Overwrite / Rename)
+- Reusable variable templates
+- Validation against `.env.example` with missing/extra variable reporting
+- Health badges on project cards
+
+### SSH Keys
+- Discovers keys in `~/.ssh` with type detection (RSA, Ed25519, ECDSA)
+- Age tracking with rotation alerts
+- Passphrase protection detection
+- Never reads private key content
+
+### Shell Profiles
+- View and edit `~/.zshrc`, `~/.bashrc`, `~/.config/fish/config.fish`
+- Extracts environment variables from shell configs
+- Backup before every edit
+
+
+## Technical Decisions
+
+**Why Tauri over Electron?** Rust backend, smaller binary (~15MB vs ~150MB), native performance, no Node.js runtime.
+
+**Why SQLite?** Local-first. No cloud, no accounts. Schema supports future features without migration pain.
+
+**Why atomic writes?** .env files contain secrets. Every write creates a `.bak` first.
+
+
+## Security
+
+- SSH private keys are never read (metadata only)
+- No telemetry, no network calls, no cloud
+- Backups before any file modification
+- OS permissions respected
+
+
+## Source Code
+
+- [GitHub](https://github.com/shakestzd/skhiya)
