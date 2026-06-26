@@ -111,6 +111,8 @@ $shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.06)
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -121,6 +123,8 @@ body {
   background-color: var(--bg);
   margin: 0;
   padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
   transition: color 0.2s ease, background-color 0.2s ease;
 }
 
@@ -1106,6 +1110,43 @@ table {
   display: block;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+// ── Mobile responsiveness (blog posts, wide tables) ────────────────────────
+// Targets ~390px iPhone viewports. Quarto's grid already collapses at
+// 767.98px, but wide tables and the monospace base font still need help.
+@media (max-width: 600px) {
+  // Responsive tables: force horizontal scroll instead of widening the page.
+  // white-space: nowrap prevents cell text wrapping so rows stay on one line
+  // and the scroll bar appears when the table is wider than the viewport.
+  main.content table,
+  #quarto-content table,
+  .cell-output-display table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  // Constrain the blog post content column and title block to the viewport.
+  main.content,
+  #quarto-content > main.content {
+    max-width: 100%;
+  }
+
+  .quarto-title-block,
+  #title-block-header {
+    max-width: 100%;
+  }
+
+  // Reduce the monospace base font so long lines fit on narrow screens.
+  // h1/h2/h3 are already scaled at @media (max-width: 480px); body sets the
+  // baseline that rem values inherit from.
+  body {
+    font-size: 0.875rem;
+  }
 }
 
 // Responsive utilities

@@ -55,10 +55,17 @@ $radius-lg: 0.5rem;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Consolas, monospace;
 }
 
+html {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--mono);
   font-size: 0.95rem;
   line-height: 1.75;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 // Typography
@@ -476,6 +483,34 @@ table td { color: var(--text-secondary); }
 
 @media (max-width: 480px) {
   p, li, td, th {
+    font-size: 0.875rem;
+  }
+}
+
+// ── Mobile responsiveness — mirrors custom.scss rules for dark theme ────────
+@media (max-width: 600px) {
+  main.content table,
+  #quarto-content table,
+  .cell-output-display table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  main.content,
+  #quarto-content > main.content {
+    max-width: 100%;
+  }
+
+  .quarto-title-block,
+  #title-block-header {
+    max-width: 100%;
+  }
+
+  body {
     font-size: 0.875rem;
   }
 }
