@@ -57,7 +57,7 @@ $radius-lg: 0.5rem;
 
 html {
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -65,7 +65,7 @@ body {
   font-size: 0.95rem;
   line-height: 1.75;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 // Typography

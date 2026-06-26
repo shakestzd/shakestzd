@@ -112,7 +112,7 @@ $shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.06)
 html {
   scroll-behavior: smooth;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -124,7 +124,7 @@ body {
   margin: 0;
   padding: 0;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   transition: color 0.2s ease, background-color 0.2s ease;
 }
 
