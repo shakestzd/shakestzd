@@ -576,12 +576,18 @@ hr {
   }
 }
 
-// Quarto layout — constrain and center content at 720px on all pages
+// Quarto layout — constrain full-width page layouts at 720px
 .page-columns .column-body,
 .page-columns .column-page,
-#quarto-content > .page-columns > .content,
-#quarto-content > main.content {
+#quarto-content > .page-columns > .content {
   max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Article layout pages — 1120px to match homepage
+#quarto-content > main.content {
+  max-width: 1120px;
   margin-left: auto;
   margin-right: auto;
 }
