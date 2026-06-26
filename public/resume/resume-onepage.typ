@@ -46,8 +46,6 @@
     #h(10pt) #sym.bar.v #h(10pt)
     #fa-icon("envelope", size: 7.5pt) #link("mailto:shakestzd@gmail.com")[shakestzd\@gmail.com]
     #h(10pt) #sym.bar.v #h(10pt)
-    #fa-icon("phone", size: 7.5pt) (+1) 984-329-6458
-    #h(10pt) #sym.bar.v #h(10pt)
     #fa-icon("github", font: "Font Awesome 6 Brands", size: 7.5pt) #link("https://github.com/shakestzd")[shakestzd]
     #h(10pt) #sym.bar.v #h(10pt)
     #fa-icon("linkedin", font: "Font Awesome 6 Brands", size: 7.5pt) #link("https://linkedin.com/in/shakestzd")[shakestzd]
