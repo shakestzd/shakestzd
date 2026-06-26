@@ -4,13 +4,13 @@
 # Base navigation items
 base_navigation:
   left:
-    - href: public/index.qmd
+    - href: index.qmd
       text: Home
-    - href: public/projects/index.qmd
+    - href: projects/index.qmd
       text: Projects
-    - href: public/blog/index.qmd
+    - href: blog/index.qmd
       text: Writing
-    - href: public/resume/resume.qmd
+    - href: resume/resume.qmd
       text: Resume
 
   right:

@@ -24,7 +24,7 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      # public/resume/resume.qmd has {python} code cells (jupyter engine),
+      # resume/resume.qmd has {python} code cells (jupyter engine),
       # so the runner needs Python + the deps those cells import.
       - name: Set up Python
         uses: actions/setup-python@v5

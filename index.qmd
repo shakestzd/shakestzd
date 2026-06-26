@@ -1,14 +1,12 @@
 ---
 page-layout: full
 toc: false
-aliases:
-  - ../index.html
 ---
 
 ```{=html}
 <div class="portfolio-home">
 <div class="profile-header">
-  <img src="../assets/images/shakes_profile_nobg_102522.png"
+  <img src="assets/images/shakes_profile_nobg_102522.png"
        alt="Thandolwethu (Shakes) Dlamini"
        class="profile-photo" />
   <div class="profile-meta">

@@ -2,7 +2,10 @@ project:
   type: website
   output-dir: _site
   render:
-    - "public/**/*.qmd"
+    - "index.qmd"
+    - "projects/*.qmd"
+    - "blog/**/*.qmd"
+    - "resume/*.qmd"
     - "assets/"
   resources:
     - "CNAME"
@@ -22,13 +25,13 @@ website:
     pinned: true
     collapse: true
     left:
-      - href: public/index.qmd
+      - href: index.qmd
         text: Home
-      - href: public/projects/index.qmd
+      - href: projects/index.qmd
         text: Projects
-      - href: public/blog/index.qmd
+      - href: blog/index.qmd
         text: Writing
-      - href: public/resume/resume.qmd
+      - href: resume/resume.qmd
         text: Resume
     tools:
       - icon: linkedin
@@ -50,6 +53,10 @@ format:
       dark:
         - darkly
         - assets/css/custom-dark.scss
+    # Honor the visitor's OS/browser light-or-dark preference on first visit
+    # (Quarto 1.7+). The manual navbar toggle still works and is remembered
+    # via the localStorage key `quarto-color-scheme`.
+    respect-user-color-scheme: true
     css:
       - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css
     toc: true
