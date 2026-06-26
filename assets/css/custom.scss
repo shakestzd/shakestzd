@@ -1121,6 +1121,121 @@ table {
   }
 }
 
+// ── /links link-in-bio page ────────────────────────────────────────────────
+// Scoped to .linktree — only affects links/index.html.
+
+// Strip the max-width guard Quarto applies to main.content on this page.
+#quarto-content:has(.linktree),
+#quarto-content > main.content:has(.linktree) {
+  max-width: none !important;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body:has(.linktree) {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#quarto-content:has(.linktree) {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.linktree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 1.5rem;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  text-align: center;
+
+  p {
+    max-width: none;
+  }
+}
+
+.linktree-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: $space-4;
+  border: 2px solid var(--border);
+}
+
+.linktree-name {
+  font-family: var(--mono);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 $space-2 0;
+  border: none;
+  padding: 0;
+
+  &:not(:first-child) {
+    margin-top: 0;
+  }
+}
+
+.linktree-tagline {
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0 0 1.75rem 0;
+  max-width: none;
+}
+
+.link-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 0.625rem 1.25rem;
+  margin-bottom: 0.625rem;
+  border: 1px solid var(--border);
+  border-radius: $radius;
+  font-family: var(--mono);
+  text-decoration: none;
+  color: var(--text);
+  background: transparent;
+  transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+    background: color-mix(in srgb, var(--accent) 5%, transparent);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.link-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.link-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-top: 0.15rem;
+  line-height: 1.2;
+}
+
 // Print styles
 @media print {
   body {

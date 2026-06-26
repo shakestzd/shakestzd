@@ -1,0 +1,39 @@
+---
+title: ""
+page-layout: custom
+navbar: false
+sidebar: false
+toc: false
+---
+
+<div class="linktree">
+  <img
+    src="../assets/images/shakes_profile_circular_102522.png"
+    class="linktree-avatar"
+    alt="Shakes Dlamini"
+  >
+  <h1 class="linktree-name">Shakes Dlamini</h1>
+  <p class="linktree-tagline">I build things to understand them.</p>
+
+  <a href="https://pitchcasts.com" class="link-btn" target="_blank" rel="noopener noreferrer">
+    <span class="link-title">pitchcasts</span>
+    <span class="link-sub">live 2026 World Cup model</span>
+  </a>
+
+  <a href="https://github.com/shakestzd/wipnote" class="link-btn" target="_blank" rel="noopener noreferrer">
+    <span class="link-title">wipnote</span>
+    <span class="link-sub">open source</span>
+  </a>
+
+  <a href="/blog/" class="link-btn">
+    <span class="link-title">Writing</span>
+  </a>
+
+  <a href="/resume/" class="link-btn">
+    <span class="link-title">Resume</span>
+  </a>
+
+  <a href="https://www.linkedin.com/in/shakestzd" class="link-btn" target="_blank" rel="noopener noreferrer">
+    <span class="link-title">LinkedIn</span>
+  </a>
+</div>

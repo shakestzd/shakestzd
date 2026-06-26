@@ -479,3 +479,34 @@ table td { color: var(--text-secondary); }
     font-size: 0.875rem;
   }
 }
+
+// ── /links link-in-bio dark overrides ──────────────────────────────────────
+// Light-theme base styles live in custom.scss; only dark-specific colors here.
+
+.linktree-avatar {
+  border-color: var(--border);
+}
+
+.linktree-name {
+  color: var(--text);
+}
+
+.linktree-tagline {
+  color: var(--text-muted);
+}
+
+.link-btn {
+  color: var(--text);
+  border-color: var(--border);
+  background: transparent;
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+  }
+}
+
+.link-sub {
+  color: var(--text-muted);
+}
