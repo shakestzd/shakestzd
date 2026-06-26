@@ -1159,6 +1159,8 @@ body:has(.linktree) {
 
   p {
     max-width: none;
+    margin: 0;
+    width: 100%;
   }
 }
 
@@ -1199,6 +1201,7 @@ body:has(.linktree) {
   align-items: center;
   justify-content: center;
   width: 100%;
+  box-sizing: border-box;
   min-height: 48px;
   padding: 0.625rem 1.25rem;
   margin-bottom: 0.625rem;
