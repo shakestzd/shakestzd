@@ -1,0 +1,57 @@
+---
+title: "Grading my World Cup model on matchday 3"
+author: "Thandolwethu Dlamini"
+date: "2026-06-26"
+categories: [pitchcasts, forecasting, building-in-public]
+description: "7 of 12 on an upset-heavy round, the one miss worth fixing, and how I'm improving it for the rest without overfitting."
+---
+
+Over the last two days, the first six groups played out their final group games. I went back to see how my World Cup model did across those 12 matches: 7 of 12, or 58%, on a stretch that turned out upset-heavy.
+
+That number is better than it felt while watching. The upsets bunched into one of the two days, where the model went 3 of 8. The calmer day went a clean 4 of 4. Net: 7 of 12.
+
+### The scorecard
+
+Every game, with the model's pre-match probabilities (home / draw / away), its top pick, the result, and whether it called it. These are the deployed model's numbers, the same ones the site shows.
+
+| Grp | Match | Model (H/D/A) | Pick | Result | Verdict |
+|----|-------|------|------|--------|---------|
+| A | Czechia–Mexico | 6 / 22 / 73 | Mexico | 0–3 | ✅ Called |
+| A | South Africa–South Korea | 27 / 37 / 36 | Draw | 1–0 RSA | ❌ Missed |
+| B | Switzerland–Canada | 51 / 31 / 19 | Switzerland | 2–1 | ✅ Edged |
+| B | Bosnia–Qatar | 62 / 27 / 12 | Bosnia | 3–1 | ✅ Called |
+| C | Morocco–Haiti | 74 / 21 / 5 | Morocco | 4–2 | ✅ Called |
+| C | Scotland–Brazil | 8 / 25 / 67 | Brazil | 0–3 | ✅ Called |
+| D | Turkey–USA | 28 / 33 / 39 | USA | 3–2 TUR | ❌ Missed |
+| D | Paraguay–Australia | 24 / 37 / 39 | Australia | 0–0 | ❌ Missed |
+| E | Ecuador–Germany | 28 / 34 / 38 | Germany | 2–1 ECU | ❌ Missed |
+| E | Curaçao–Ivory Coast | 11 / 27 / 62 | Ivory Coast | 0–2 | ✅ Called |
+| F | Tunisia–Netherlands | 3 / 17 / 80 | Netherlands | 1–3 | ✅ Called |
+| F | Japan–Sweden | 60 / 27 / 13 | Japan | 1–1 | ❌ Whiffed |
+
+### How to read it
+
+What I like is where the misses came from. Four of the five were genuine coin-flips. The model's top pick in those games was under 40%, with the actual result only a few points behind. It saw the upset as live, it just didn't lead with it. Paraguay vs Australia is the clearest case: it had the draw at 37%, basically tied with its 39% pick, and the game finished 0-0.
+
+Only one was a real bad call: Japan vs Sweden. The model had Japan at 60% on a neutral-site game that ended 1-1. That is its single overconfident miss of the round, and it is the interesting one, because it lines up with a known gap. That game was missing post-match shot-quality data, so the model leaned too hard on Japan's earlier 4-0.
+
+Its confident reads held up. Mexico to beat Czechia at 73% (3-0). Brazil over Scotland (3-0). The Netherlands at 80% (3-1). On the calls it was sure about, it is 23 of 27 for the tournament, and 63% overall, ahead of baseline. Its biggest miss of the whole tournament is still a different game entirely: Switzerland at 77%, held to a draw.
+
+### What I'm changing for the remaining groups
+
+A few groups still have their final games to play, so there is room to fold in what has happened without overfitting to a handful of results. The approach is to augment the engine, not replace it.
+
+One rule ties it together: nothing ships unless it beats a leave-future-out test. The model is scored only on games it has not seen, by Brier score, the same measure I have used all along. If a change does not beat that gate, it does not go live. That is what keeps me from chasing a few upsets and overfitting the rest of the tournament.
+
+The levers I'm working through, lowest-risk first:
+
+1. **A probability calibration layer (Platt scaling)**, gated on the leave-future-out test. Targets the overconfident calls like Japan. My first pick: lowest risk, no new data needed.
+2. **Refresh the expected-goals (xG) data** and record a clean gate baseline.
+3. **Turn on xG-based learning**, with a gate-or-revert switch. The last attempt regressed on three games, so this one waits on fresh xG data and a new baseline.
+4. **A calibrated LightGBM model as a second opinion**, feeding contextual prior adjustments.
+5. **Graduate the standings lever** (dead rubbers, must-win games) through the same gate.
+6. **A lagged-Elo trajectory feature**, so the model sees which way a team's strength is trending.
+
+The jury is still out on how much any of this moves the needle. That is the point of doing it in public: the model records its hits and misses, I score it honestly, and I only ship what beats the test. I'll write up what works and what does not as the tournament goes.
+
+The live board, hits and misses both: [pitchcasts.com](https://pitchcasts.com)
