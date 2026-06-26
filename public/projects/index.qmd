@@ -1,7 +1,9 @@
 ---
-page-layout: article
+page-layout: full
 toc: false
 ---
+
+::: {.portfolio-page}
 
 ## AI Engineering
 
@@ -45,3 +47,5 @@ Secure credentials management with OS-level encryption. 50ms import times, zero 
 
 **[Treasury Analytics Core](treasury-analytics-core.qmd)**
 Shared framework eliminating code duplication across 15+ treasury analytics projects. Database operations, query optimization, performance tracking.
+
+:::

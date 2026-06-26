@@ -1,6 +1,6 @@
 ---
 title-block-style: none
-page-layout: article
+page-layout: full
 toc: false
 resources:
   - Thandolwethu_Shakes_Dlamini_Resume.pdf
@@ -8,6 +8,8 @@ format:
   html:
     css: resume.css
 ---
+
+:::: {.portfolio-page}
 
 ```{=html}
 <div style="text-align: right; margin-bottom: 0.5rem;">
@@ -108,3 +110,5 @@ for edu in education:
         print(f"- {detail}")
     print()
 ```
+
+::::

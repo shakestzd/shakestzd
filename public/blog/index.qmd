@@ -5,9 +5,11 @@ listing:
   sort: "date desc"
   type: default
   categories: false
-page-layout: article
+page-layout: full
 toc: false
 ---
+
+:::: {.portfolio-page}
 
 ## Systems Research
 
@@ -82,3 +84,5 @@ Recent publications from [TZD Labs Systems Research](https://shakestzd.github.io
 #systems-articles a:hover { text-decoration: underline; }
 </style>
 ```
+
+::::

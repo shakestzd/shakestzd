@@ -228,6 +228,18 @@ hr {
   }
 }
 
+// Projects, Writing, Resume index pages — same width as homepage
+#quarto-content > .page-columns > .content:has(.portfolio-page),
+#quarto-content > main.content:has(.portfolio-page) {
+  max-width: 1120px;
+  width: calc(100% - 3rem);
+
+  @media (max-width: 768px) {
+    max-width: calc(100vw - 1.5rem);
+    width: calc(100vw - 1.5rem);
+  }
+}
+
 .profile-header {
   display: flex;
   align-items: center;
@@ -585,7 +597,7 @@ hr {
   margin-right: auto;
 }
 
-// Article layout pages — 1120px to match homepage
+// Fallback: any main.content without page-columns wrapper — cap at 1120px
 #quarto-content > main.content {
   max-width: 1120px;
   margin-left: auto;
