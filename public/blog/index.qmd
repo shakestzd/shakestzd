@@ -5,7 +5,7 @@ listing:
   sort: "date desc"
   type: default
   categories: false
-page-layout: full
+page-layout: article
 toc: false
 ---
 

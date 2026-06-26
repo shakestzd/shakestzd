@@ -1,6 +1,6 @@
 ---
 title-block-style: none
-page-layout: full
+page-layout: article
 toc: false
 resources:
   - Thandolwethu_Shakes_Dlamini_Resume.pdf
