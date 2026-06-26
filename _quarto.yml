@@ -31,7 +31,7 @@ website:
         text: Projects
       - href: blog/index.qmd
         text: Writing
-      - href: resume/resume.qmd
+      - href: resume/index.qmd
         text: Resume
     tools:
       - icon: linkedin
